@@ -1,5 +1,5 @@
 import React, { type ChangeEvent, useState, useEffect } from 'react';
-import './login.css';
+import './Login.css';
 
 import userNameIcon from '../../images/username.svg';
 import passwordNameIcon from '../../images/contraseña.svg';
