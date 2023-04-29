@@ -59,6 +59,7 @@
 .NotificationBtn .count {
   position: absolute;
   display: inline-block;
+  top: 20px;
   width: 20px;
   height: 20px;
   background-color:  #c00;

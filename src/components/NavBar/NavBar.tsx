@@ -8,9 +8,9 @@ const NavBar = () => {
 
   useEffect(() => {
     if (count > 0) {
-      document.title = `(${count}) Notificaciones`;
+      document.title = `(${count}) Dashboard`;
     } else {
-      document.title = 'Notificaciones';
+      document.title = 'Dashboard';
     }
   }, [count]);
 
