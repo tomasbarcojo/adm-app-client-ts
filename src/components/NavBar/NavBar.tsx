@@ -3,7 +3,7 @@ import './NavBar.css';
 import notificationIcon from '../../images/notifications.svg';
 import profileimg from '../../images/profileimg.svg';
 
-const NavBar: React.FC = () => {
+const NavBar = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
