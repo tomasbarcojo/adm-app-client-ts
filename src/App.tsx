@@ -6,6 +6,7 @@ import 'App.css';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
 import NavBar from 'pages/NavBar';
+import Cards from 'pages/Cards/Cards';
 
 // const getRoutes = (allRoutes) =>
 //   allRoutes.map((route) => {
@@ -28,6 +29,7 @@ const App: React.FC = () => (
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<NavBar />} />
+      <Route path="/card" element={<Cards />} />
     </Routes>
   </BrowserRouter>
 );
