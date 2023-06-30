@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { type ReactNode, useState, useEffect, type FC } from 'react';
 import './NavBar.css';
 import notificationIcon from '../../images/notifications.svg';
 import profileimg from '../../images/profileimg.svg';
 
-const NavBar = () => {
+interface NavBarProps {
+  children?: ReactNode;
+}
+
+const NavBar: FC<NavBarProps> = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {

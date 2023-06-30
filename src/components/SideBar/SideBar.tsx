@@ -2,8 +2,9 @@ import React, { useRef } from 'react';
 import './SideBar.css';
 // import profileImg from '../../images/profile.jpeg';
 import avatarImg from '../../images/profileimg.svg';
+import { Link, Route, Routes } from 'react-router-dom';
 
-const SideBar2: React.FC = () => {
+const SideBar: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
@@ -30,24 +31,24 @@ const SideBar2: React.FC = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="/">
+            <Link to="/admin/test">
               <i className="bx bx-grid-alt"></i>
               <span className="link_name">Dashboard</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link to="/admin/test" className="link_name">
                   Dashboard
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/admin">
                 <i className="bx bx-collection"></i>
                 <span className="link_name">Category</span>
-              </a>
+              </Link>
               <i
                 className="bx bxs-chevron-down arrow"
                 onClick={handleClick}
@@ -57,27 +58,27 @@ const SideBar2: React.FC = () => {
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Category
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">HTML & CSS</a>
+                <Link to="/admin">HTML & CSS</Link>
               </li>
               <li>
-                <a href="/">JavaScript</a>
+                <Link to="/admin">JavaScript</Link>
               </li>
               <li>
-                <a href="/">PHP & MySQL</a>
+                <Link to="/admin">PHP & MySQL</Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/admin">
                 <i className="bx bx-book-alt"></i>
                 <span className="link_name">Posts</span>
-              </a>
+              </Link>
               <i
                 className="bx bxs-chevron-down arrow"
                 onClick={handleClick}
@@ -87,53 +88,53 @@ const SideBar2: React.FC = () => {
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Posts
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">Web Design</a>
+                <Link to="/admin">Web Design</Link>
               </li>
               <li>
-                <a href="/">Login Form</a>
+                <Link to="/admin">Login Form</Link>
               </li>
               <li>
-                <a href="/">Card Design</a>
+                <Link to="/admin">Card Design</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/admin">
               <i className="bx bx-pie-chart-alt-2"></i>
               <span className="link_name">Analytics</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Analytics
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/admin">
               <i className="bx bx-line-chart"></i>
               <span className="link_name">Chart</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Chart
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
             <div className="iocn-link">
-              <a href="/">
+              <Link to="/admin">
                 <i className="bx bx-plug"></i>
                 <span className="link_name">Plugins</span>
-              </a>
+              </Link>
               <i
                 className="bx bxs-chevron-down arrow"
                 onClick={handleClick}
@@ -143,57 +144,57 @@ const SideBar2: React.FC = () => {
             </div>
             <ul className="sub-menu">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Plugins
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">UI Face</a>
+                <Link to="/admin">UI Face</Link>
               </li>
               <li>
-                <a href="/">Pigments</a>
+                <Link to="/admin">Pigments</Link>
               </li>
               <li>
-                <a href="/">Box Icons</a>
+                <Link to="/admin">Box Icons</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/admin">
               <i className="bx bx-compass"></i>
               <span className="link_name">Explore</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Explore
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/admin">
               <i className="bx bx-history"></i>
               <span className="link_name">History</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   History
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/admin">
               <i className="bx bx-cog"></i>
               <span className="link_name">Setting</span>
-            </a>
+            </Link>
             <ul className="sub-menu blank">
               <li>
-                <a className="link_name" href="/">
+                <Link className="link_name" to="/admin">
                   Setting
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
@@ -221,12 +222,14 @@ const SideBar2: React.FC = () => {
           ></i>
           <span className="text">Drop Down Sidebar</span>
         </div>
-        {/* <div> */}
-        <h1 style={{ backgroundColor: 'red' }}>hola</h1>
-        {/* </div> */}
+        <div>
+          <Routes>
+            <Route path="/test" element={<h1>hola! esto es un test</h1>} />
+          </Routes>
+        </div>
       </section>
     </div>
   );
 };
 
-export default SideBar2;
+export default SideBar;

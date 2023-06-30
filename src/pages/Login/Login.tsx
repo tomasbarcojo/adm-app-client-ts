@@ -19,7 +19,6 @@ const Login: React.FC = () => {
     const vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    console.log(vh);
   }, []);
 
   const handleChangeUserInput = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -38,9 +37,9 @@ const Login: React.FC = () => {
     });
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   // const handleSubmit = (e) => {
   //   console.log(keepLogged);
