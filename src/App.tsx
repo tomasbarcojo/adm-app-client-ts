@@ -5,8 +5,8 @@ import 'App.css';
 
 import Home from 'pages/Home';
 import Login from 'pages/Login';
-import NavBar from 'pages/NavBar';
-import Cards from 'pages/Cards/Cards';
+import NavBar from 'components/NavBar';
+import Cards from 'components/Cards/Cards';
 
 // const getRoutes = (allRoutes) =>
 //   allRoutes.map((route) => {
