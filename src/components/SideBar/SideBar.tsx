@@ -3,6 +3,9 @@ import './SideBar.css';
 // import profileImg from '../../images/profile.jpeg';
 import avatarImg from '../../images/profileimg.svg';
 import { Link, Route, Routes } from 'react-router-dom';
+import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
+import { InputText } from 'components/Inputs/InputText/InputText';
+import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 
 const SideBar: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -222,11 +225,12 @@ const SideBar: React.FC = () => {
           ></i>
           <span className="text">Drop Down Sidebar</span>
         </div>
-        <div>
-          <Routes>
-            <Route path="/test" element={<h1>hola! esto es un test</h1>} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/test" element={<h1>hola! esto es un test</h1>} />
+          <Route path="/product" element={<CreateProductForm />} />
+          <Route path="/inputtext" element={<InputText />} />
+          <Route path="/inputselect" element={<InputSelect />} />
+        </Routes>
       </section>
     </div>
   );

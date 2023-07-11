@@ -1,0 +1,18 @@
+.component {
+  height: 27px;
+  position: relative;
+  width: auto;
+}
+
+.component .inputText {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 2px solid #e6e6e6;
+  outline: none;
+  color: #7f7f7f;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  padding-block: 10px;
+}
