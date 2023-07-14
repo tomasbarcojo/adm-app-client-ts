@@ -1,29 +1,46 @@
 import React from 'react';
+import { enqueueSnackbar } from 'notistack';
+import '../../App.css';
 
-import { useCustomDispatch, useCustomSelector } from 'hooks/redux';
-import { login } from 'redux/slices/auth';
+// import { useCustomDispatch, useCustomSelector } from 'hooks/redux';
+// import { loginUser } from 'redux/slices/auth';
 
 const Home: React.FC = () => {
-  const {
-    auth: { accessToken, isLoading }
-  } = useCustomSelector((state) => state);
-  const dispatch = useCustomDispatch();
+  // const {
+  //   auth: { accessToken, isLoading }
+  // } = useCustomSelector((state) => state);
+  // const dispatch = useCustomDispatch();
 
-  console.log(accessToken);
+  // console.log(accessToken);
 
-  const handleLogin = (): void => {
-    dispatch(
-      login({
-        username: 'admin',
-        password: '1234'
-      })
-    );
-  };
+  // const handleLogin = (): void => {
+  //   dispatch(
+  //     loginUser({
+  //       username: 'admin',
+  //       password: '1234'
+  //     })
+  //   );
+  // };
 
+  // return (
+  //   <div>
+  //     Home <button onClick={handleLogin}>Login</button>
+  //     {isLoading === true ? 'loading...' : null}
+  //   </div>
+  // );
   return (
     <div>
-      Home <button onClick={handleLogin}>Login</button>
-      {isLoading === true ? 'loading...' : null}
+      Home
+      <button
+        onClick={() =>
+          enqueueSnackbar(`El usuario o contraseña son inválidos`, {
+            variant: 'error',
+            preventDuplicate: false
+          })
+        }
+      >
+        Login2
+      </button>
     </div>
   );
 };

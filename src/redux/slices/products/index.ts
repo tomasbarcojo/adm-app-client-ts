@@ -48,7 +48,7 @@ export const userLogin = createAsyncThunk(
   }
 );
 
-const authSlice = createSlice({
+const productSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -94,31 +94,13 @@ const authSlice = createSlice({
         }
       })
       .addCase(userLogin.rejected, () => {
-        enqueueSnackbar(`Ocurrio un error inesperado`, {
+        enqueueSnackbar(`El usuario o contraseña son inválidos`, {
           variant: 'error'
         });
       });
   }
 });
 
-export const { setAccessToken, setIsLoading } = authSlice.actions;
+export const { setAccessToken, setIsLoading } = productSlice.actions;
 
-export default authSlice.reducer;
-
-// export const loginUser =
-//   (data: LoginData): Thunk =>
-//   async (dispatch): Promise<AxiosResponse | AxiosError> => {
-//     dispatch(setIsLoading(true));
-//     try {
-//       const response: AxiosResponse = await axios.post(
-//         '/auth/local/signin',
-//         data
-//       );
-//       dispatch(setAccessToken(response.data.access_token));
-//       return response;
-//     } catch (error) {
-//       return error as AxiosError;
-//     } finally {
-//       dispatch(setIsLoading(false));
-//     }
-//   };
+export default productSlice.reducer;

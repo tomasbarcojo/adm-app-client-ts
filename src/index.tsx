@@ -6,12 +6,22 @@ import store, { persistor } from 'redux/store';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import { router } from 'routes/routes';
+import { SnackbarProvider } from 'notistack';
+import SnackbarCloseButton from 'components/NotificationAlerts/NotificationAlerts';
+
+import './App.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <React.StrictMode>
-        <RouterProvider router={router} />
+        <SnackbarProvider
+          action={(snackbarKey) => (
+            <SnackbarCloseButton snackbarKey={snackbarKey} />
+          )}
+        >
+          <RouterProvider router={router} />
+        </SnackbarProvider>
       </React.StrictMode>
     </PersistGate>
   </Provider>
