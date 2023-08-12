@@ -27,16 +27,35 @@ const { REACT_APP_URL_API } = process.env;
 
 const urlApi: string = REACT_APP_URL_API as string;
 
-export const userLogin = createAsyncThunk(
-  'user/loginUser',
-  async (
-    data: LoginData,
-    thunkAPI
-  ): Promise<{
-    data: { user: { firstName: string }; access_token: string };
-    status: number;
-    keepLogged: boolean;
-  }> => {
+interface Error {
+  message: string;
+  response: { status: number; statusText: string };
+}
+
+interface MyData {
+  data: {
+    access_token: string;
+    user: {
+      createdAt: string;
+      deletedAt: string | null;
+      emaik: string;
+      id: number;
+      firstName: string;
+      lastName: string;
+      updateAt: string;
+      username: string;
+    };
+  };
+  status: number;
+  keepLogged: boolean;
+}
+
+export const userLogin = createAsyncThunk<
+  MyData,
+  LoginData,
+  { rejectValue: Error }
+>('user/loginUser', async (data: LoginData, thunkAPI) => {
+  try {
     const response = await axios.post(`${urlApi}/auth/local/signin`, data, {
       signal: thunkAPI.signal
     });
@@ -45,8 +64,10 @@ export const userLogin = createAsyncThunk(
       status: response.status,
       keepLogged: data.keepLogged
     };
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error as Error);
   }
-);
+});
 
 const authSlice = createSlice({
   name: 'auth',
@@ -62,10 +83,13 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(userLogin.pending, (state) => {
+        console.log('1');
         state.accessToken = null;
         state.isLoading = true;
       })
       .addCase(userLogin.fulfilled, (state, action) => {
+        console.log('2');
+        console.log(action);
         if (action.payload.status === 401)
           enqueueSnackbar(`El usuario o contraseña son inválidos`, {
             variant: 'error'
@@ -93,10 +117,11 @@ const authSlice = createSlice({
           }
         }
       })
-      .addCase(userLogin.rejected, () => {
-        enqueueSnackbar(`Ocurrio un error inesperado`, {
-          variant: 'error'
-        });
+      .addCase(userLogin.rejected, (state, action) => {
+        if (action.payload?.response.status === 404)
+          enqueueSnackbar(`Contraseña incorrecta`, {
+            variant: 'error'
+          });
       });
   }
 });
