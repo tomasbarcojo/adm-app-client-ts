@@ -40,22 +40,6 @@ const Login: React.FC = () => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
-  // const handleChangeUserInput = (e: ChangeEvent<HTMLInputElement>): void => {
-  //   setData({
-  //     ...data,
-  //     username: e.target.value
-  //   });
-  // };
-
-  // const handleChangePasswordInput = (
-  //   e: ChangeEvent<HTMLInputElement>
-  // ): void => {
-  //   setData({
-  //     ...data,
-  //     password: e.target.value
-  //   });
-  // };
-
   const handleKeepLogged = (e: ChangeEvent<HTMLInputElement>): void => {
     setData({
       ...data,
