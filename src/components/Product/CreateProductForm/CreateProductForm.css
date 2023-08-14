@@ -1,19 +1,18 @@
-.componentCreateProductForm {
+/* .componentCreateProductForm {
   margin: 32px;
-  height: 649px;
   position: relative;
 }
 
-.rectangleTop {
+.rectangleWhite {
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 4px 4px #00000040;
-  position: absolute;
-  top: 31px;
   width: 100%;
+  position: relative;
+  top: -31px;
 }
 
-.rectangleWhite {
+.rectangleTop {
   background-color: #00acc2;
   border-radius: 4px;
   box-shadow: 0px 4px 4px #00000040;
@@ -24,13 +23,15 @@
   flex-direction: row;
   align-items: center;
   padding-inline: 40px;
+  position: relative;
 }
 
 .boxComponent {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-}
+  align-items: center;
+} */
 
 .inputsComponentForm {
   display: flex;
@@ -45,7 +46,7 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin-inline:1% ;
+  margin-inline: 1%;
 }
 
 .inputPic {
@@ -64,15 +65,15 @@
   margin-bottom: 5%;
 }
 
-.componentCreateProductForm .img {
+/* .componentCreateProductForm .img {
   height: 2px;
   left: 60px;
   position: absolute;
   top: 225px;
   width: 269px;
-}
+} */
 
-.componentCreateProductForm .name {
+.nameProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -84,7 +85,7 @@
   margin-bottom: 5%;
 }
 
-.componentCreateProductForm .category {
+.categoryProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -94,7 +95,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .code {
+.codeProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -106,7 +107,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .supplier {
+.supplierProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -116,7 +117,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .price {
+.priceProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -127,7 +128,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .stock {
+.stockProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -137,7 +138,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .description {
+.descriptionProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -149,7 +150,7 @@
   margin-bottom: 5%;
 }
 
-.componentCreateProductForm .stock-alert {
+.stock-alertProduct {
   color: #7f7f7f;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -159,7 +160,7 @@
   width: 48%;
 }
 
-.componentCreateProductForm .add-image {
+.add-image {
   color: #00acc2;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -175,7 +176,7 @@
   cursor: pointer;
 }
 
-.componentCreateProductForm .done {
+.doneBtn {
   color: #ffffff;
   font-family: 'Roboto-Regular', Helvetica;
   font-size: 16px;
@@ -196,11 +197,11 @@
   transition-duration: 0.4s;
 }
 
-.done:hover {
-  background-color: #198591
+.doneBtn:hover {
+  background-color: #198591;
 }
 
-.componentCreateProductForm .back {
+.backBtn {
   color: #585858;
   background-color: #eeeeee;
   font-family: 'Roboto-Regular', Helvetica;
@@ -221,8 +222,8 @@
   cursor: pointer;
 }
 
-.back:hover {
-  background-color: #D9D9D9;
+.backBtn:hover {
+  background-color: #d9d9d9;
   color: black;
 }
 
@@ -234,18 +235,18 @@
   justify-content: flex-end;
 }
 
-.componentCreateProductForm .rectangle-3 {
+.rectangle-3 {
   background-color: #eeeeee;
   height: 60%;
   width: 60%;
 }
 
-.componentCreateProductForm .bx-image-add {
+.bx-image-add {
   height: 20%;
   position: absolute;
 }
 
-.componentCreateProductForm .add-item {
+.add-item {
   color: #ffffff;
   font-family: 'Roboto-Medium', Helvetica;
   font-size: 18px;
@@ -254,77 +255,106 @@
   padding-inline: 10px;
 }
 
-.componentCreateProductForm .bx-add-to-queue {
+.bx-add-to-queue {
   height: 24px;
   width: 24px;
 }
 
 @media screen and (max-width: 800px) {
+  .componentCreateProductForm {
+    margin: 16px;
+    position: relative;
+  }
+
+  .inputsComponentForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .twoinput {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 5%;
+    margin-bottom: 0%;
   }
 
-  .componentCreateProductForm .code {
+  .codeProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .price {
+  .priceProduct {
+    width: 100%;
+    margin-block: 5%;
+  }
+  .stockProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .stock {
+  .stock-alertProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .stock-alert {
+  .categoryProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .category {
+  .supplierProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .supplier {
-    width: 100%;
-    margin-block: 5%;
+  .descriptionProduct {
+    margin-top: 5%;
   }
 
   .inputsTextFrom {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    margin-inline:1% ;
+    width: 90%;
+    margin-inline: 1%;
   }
-  
+
   .inputPic {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40%;
-    margin-left: 2%;
+    width: 90%;
+    margin-block: 5%;
   }
 
-  .componentCreateProductForm .rectangle-3 {
+  .rectangle-3 {
     background-color: #eeeeee;
-    height: 30%;
+    height: 150px;
+    width: 180px;
   }
-  
-  .componentCreateProductForm .bx-image-add {
-    height: 10%;
+
+  .bx-image-add {
+    width: 10%;
     position: absolute;
+  }
+
+  .ProductBtn {
+    display: flex;
+    flex-direction: row;
+    margin-inline: 6%;
+    margin-bottom: 30px;
+    justify-content: flex-end;
   }
 }
 
 @media screen and (max-width: 470px) {
+  .componentCreateProductForm {
+    margin-block: 24px;
+    margin-inline: 8px;
+    position: relative;
+  }
+
   .twoinput {
     display: flex;
     flex-direction: column;
@@ -332,12 +362,16 @@
     margin-bottom: 5%;
   }
 
-  .componentCreateProductForm .code {
+  .rectangle-3 {
+    height: 115px;
+  }
+
+  .codeProduct {
     width: 100%;
     margin-block: 5%;
   }
 
-  .componentCreateProductForm .price {
+  .priceProduct {
     width: 100%;
     margin-block: 5%;
   }
