@@ -3,6 +3,9 @@ import './SideBar.css';
 // import profileImg from '../../images/profile.jpeg';
 import avatarImg from '../../images/profileimg.svg';
 import { Link, Route, Routes } from 'react-router-dom';
+import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
+import { InputText } from 'components/Inputs/InputText/InputText';
+import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 
 const SideBar: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -212,6 +215,14 @@ const SideBar: React.FC = () => {
           </li>
         </ul>
       </div>
+      <div
+        className="dark-overlay"
+        onClick={handleToggleSideBar}
+        role="button"
+        tabIndex={0}
+      >
+        {' '}
+      </div>
       <section className="home-section">
         <div className="home-content">
           <i
@@ -224,7 +235,44 @@ const SideBar: React.FC = () => {
         </div>
         <div>
           <Routes>
-            <Route path="/test" element={<h1>hola! esto es un test</h1>} />
+            <Route
+              path="/test"
+              element={
+                <>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                  <h1>hola! esto es un test</h1>
+                </>
+              }
+            />
+            <Route path="/product" element={<CreateProductForm />} />
+            <Route path="/inputtext" element={<InputText />} />
+            <Route path="/inputselect" element={<InputSelect />} />
           </Routes>
         </div>
       </section>

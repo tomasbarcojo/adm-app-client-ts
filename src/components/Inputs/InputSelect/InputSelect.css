@@ -1,0 +1,33 @@
+.component {
+  height: 27px;
+  position: relative;
+  width: auto;
+}
+
+.component .inputSelect {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 2px solid #e6e6e6;
+  outline: none;
+  color: #7f7f7f;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  padding-block: 10px;
+}
+
+.inputSelect .option {
+  font-family: 'Roboto-Regular', Helvetica;
+}
+
+@media screen and (max-width: 470px) {
+  
+  .inputSelect option {
+    font-size: 10px; /* Ajusta el tamaño de fuente de las opciones */
+    font-family: 'Roboto-Regular', Helvetica;
+    white-space: nowrap; /* Evita que el texto de las opciones se divida en varias líneas */
+    text-overflow: ellipsis; /* Muestra "..." cuando el texto de la opción es demasiado largo */
+  }
+
+}

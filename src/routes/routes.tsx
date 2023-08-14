@@ -20,6 +20,18 @@ export const router = createBrowserRouter([
       {
         path: 'test',
         element: <h1>Test</h1>
+      },
+      {
+        path: 'product',
+        element: <h1>Product</h1>
+      },
+      {
+        path: 'inputtext',
+        element: <h1>InputText</h1>
+      },
+      {
+        path: 'inputselect',
+        element: <h1>InputSelect</h1>
       }
     ]
   }
