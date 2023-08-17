@@ -213,7 +213,7 @@ body{
 }
 .home-section{
   position: relative;
-  background: #E4E9F7;
+  background: #EEEEEE;
   min-height: 100vh;
   height: max-content;
   left: 260px;
@@ -244,7 +244,7 @@ body{
   font-weight: 600;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 470px){
   .sidebar.close{
     /* display: none; */
     margin-left: -260px;

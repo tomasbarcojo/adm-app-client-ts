@@ -6,6 +6,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
 import { InputText } from 'components/Inputs/InputText/InputText';
 import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
+import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 
 const SideBar: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -271,8 +272,15 @@ const SideBar: React.FC = () => {
               }
             />
             <Route path="/product" element={<CreateProductForm />} />
-            <Route path="/inputtext" element={<InputText />} />
-            <Route path="/inputselect" element={<InputSelect />} />
+            <Route path="/category" element={<CreateCategoryForm />} />
+            <Route
+              path="/inputtext"
+              element={<InputText placeHolder="Test" />}
+            />
+            <Route
+              path="/inputselect"
+              element={<InputSelect placeHolder="Test" />}
+            />
           </Routes>
         </div>
       </section>
