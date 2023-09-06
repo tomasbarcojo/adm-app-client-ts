@@ -1,4 +1,4 @@
-import { useCustomSelector } from 'hooks/redux';
+import { useCustomSelector } from 'redux/hooks';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 

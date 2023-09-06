@@ -4,7 +4,7 @@ import './Login.css';
 import userNameIcon from '../../images/username.svg';
 import passwordNameIcon from '../../images/contraseña.svg';
 import activaLogo from '../../images/adm-logo-color.png';
-import { useCustomDispatch, useCustomSelector } from 'hooks/redux';
+import { useCustomDispatch, useCustomSelector } from 'redux/hooks';
 import { userLogin } from 'redux/slices/auth';
 import { useNavigate } from 'react-router-dom';
 
