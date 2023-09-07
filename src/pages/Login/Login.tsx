@@ -40,12 +40,12 @@ const Login: React.FC = () => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
-  const handleKeepLogged = (e: ChangeEvent<HTMLInputElement>): void => {
-    setData({
-      ...data,
-      keepLogged: e.target.checked
-    });
-  };
+  // const handleKeepLogged = (e: ChangeEvent<HTMLInputElement>): void => {
+  //   setData({
+  //     ...data,
+  //     keepLogged: e.target.checked
+  //   });
+  // };
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -107,12 +107,8 @@ const Login: React.FC = () => {
             <button className="loginButton" type="submit">
               Ingresar
             </button>
-            <div className="rememberOrForgottenPassword">
-              <label>
-                <input type="checkbox" id="cbox1" onChange={handleKeepLogged} />{' '}
-                Recordarme
-              </label>
-              <p>¿Olvidaste tu contraseña?</p>
+            <div className="forgottenPassword">
+              <a href="/password/reset">¿Olvidaste tu contraseña?</a>
             </div>
           </div>
         </div>
