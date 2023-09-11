@@ -10,6 +10,7 @@
 .inputsTextFromCategory {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 70%;
   margin-inline: 1%;
 }
@@ -61,8 +62,10 @@
 
 .rectanglegrey {
   background-color: #eeeeee;
-  height: 180px;
-  width: 180px;
+  min-height: 300px;
+  width: 100%;
+  max-width: 250px;
+  margin: 25px;
 }
 
 .addImagenCategory {
@@ -70,11 +73,26 @@
   position: absolute;
 }
 
+.imagePreview {
+  margin: 25px;
+
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
 @media screen and (max-width: 800px) {
-  .rectanglegrey {
-    background-color: #eeeeee;
-    height: 180px;
-    width: 180px;
+  .inputsCategoryForm {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .inputsTextFromCategory {
+    width: 100%;
+  }
+
+  .inputPicCategory {
+    width: 100%;
   }
   
   .addImagen {
