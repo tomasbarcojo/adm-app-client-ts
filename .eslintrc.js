@@ -28,6 +28,9 @@ module.exports = {
     'prettier/prettier': 'error',
     '@typescript-eslint/no-floating-promises': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off'
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn'
   }
 };

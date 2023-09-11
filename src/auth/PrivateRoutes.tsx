@@ -6,9 +6,10 @@ export default function PrivateRoutes(props: {
   children: React.ReactNode;
 }): JSX.Element | null {
   const auth = useCustomSelector((state) => state.auth);
-  if (auth.accessToken) {
-    return <>{props.children}</>;
-  } else {
-    return <Navigate to="/login" />;
-  }
+  // if (auth.accessToken) {
+  //   return <>{props.children}</>;
+  // } else {
+  //   return <Navigate to="/login" />;
+  // }
+  return <>{props.children}</>;
 }

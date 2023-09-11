@@ -5,23 +5,17 @@ import userNameIcon from '../../images/username.svg';
 import passwordNameIcon from '../../images/contraseña.svg';
 import activaLogo from '../../images/adm-logo-color.png';
 import { useCustomDispatch, useCustomSelector } from 'redux/hooks';
-import { userLogin } from 'redux/slices/auth';
+import { type LoginData, userLogin } from 'redux/slices/auth';
 import { useNavigate } from 'react-router-dom';
 
-interface AuthUser {
-  username: string;
-  password: string;
-  keepLogged: boolean;
-}
-
-const initialState: AuthUser = {
+const initialState: LoginData = {
   username: '',
   password: '',
-  keepLogged: false
+  keepLogged: true
 };
 
 const Login: React.FC = () => {
-  const [data, setData] = useState<AuthUser>(initialState);
+  const [data, setData] = useState<LoginData>(initialState);
   const dispatch = useCustomDispatch();
   const history = useNavigate();
   const auth = useCustomSelector((state) => state.auth);
@@ -54,7 +48,7 @@ const Login: React.FC = () => {
         userLogin({
           username: data.username,
           password: data.password,
-          keepLogged: data.keepLogged ?? false
+          keepLogged: data.keepLogged
         })
       ).then((result) => {
         if (result.payload) history('/admin');
