@@ -74,10 +74,11 @@
 }
 
 .imagePreview {
-  min-height: 300px;
+  margin: 25px;
+
   width: 100%;
   max-width: 250px;
-  margin: 25px;
+  height: auto;
 }
 
 @media screen and (max-width: 800px) {
