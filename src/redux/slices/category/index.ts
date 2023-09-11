@@ -10,6 +10,8 @@ const urlApi: string = REACT_APP_URL_API as string;
 export interface CategoryData {
   categoryName: string;
   description: string | null;
+  files: File | null;
+  image: string;
 }
 
 // Definicion de initial state
@@ -19,10 +21,18 @@ export interface CategoryState {
   image: string;
 }
 
-const initialState: CategoryState = {
-  id: 0,
-  categoryName: 'null',
-  image: 'null'
+const initialState: {
+  category: CategoryState;
+  categoriesList: CategoryState[];
+  uploadProgress: number | null;
+} = {
+  category: {
+    id: 0,
+    categoryName: 'null',
+    image: 'null'
+  },
+  categoriesList: [],
+  uploadProgress: null
 };
 
 // Definicion de respuesta del back
@@ -41,6 +51,23 @@ export const createCategory = createAsyncThunk<
   { rejectValue: AxiosError }
 >('category/createCategory', async (data: CategoryData, thunkAPI) => {
   try {
+    console.log('data', data);
+
+    const formData = new FormData();
+    formData.append('file', data.files as File);
+
+    console.log('formData', formData);
+
+    const imageUrl = await axios.post(`${urlApi}/upload/single`, formData, {
+      onUploadProgress: (ProgressEvent) => {
+        const total = ProgressEvent.total as number;
+        // setProgress((ProgressEvent.loaded / total) * 100);
+        console.log('upload progress', (ProgressEvent.loaded / total) * 100);
+      }
+    });
+
+    data = { ...data, image: imageUrl.data.imageName };
+
     const response = await axios.post(`${urlApi}/category`, data, {
       signal: thunkAPI.signal
     });
@@ -53,12 +80,22 @@ export const createCategory = createAsyncThunk<
 const categorySlice = createSlice({
   name: 'category',
   initialState,
-  reducers: {},
+  reducers: {
+    setProgress: (state, action) => {
+      state.uploadProgress = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(createCategory.pending, (state) => {})
-      .addCase(createCategory.fulfilled, (state, action) => {})
-      .addCase(createCategory.rejected, (state, action) => {});
+      .addCase(createCategory.pending, (state) => {
+        console.log('pending', state);
+      })
+      .addCase(createCategory.fulfilled, (state, action) => {
+        console.log('fulfilled', state, action);
+      })
+      .addCase(createCategory.rejected, (state, action) => {
+        console.log('rejected', state, action);
+      });
   }
 });
 

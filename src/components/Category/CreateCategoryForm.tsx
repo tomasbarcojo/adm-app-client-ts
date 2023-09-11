@@ -3,17 +3,20 @@ import { BoxForm } from 'components/Forms/BoxForm';
 // import { InputText } from 'components/Inputs/InputText/InputText';
 import './CreateCateogryForm.css';
 import addImagen from './addimagen.svg';
-// import { useCustomDispatch } from 'redux/hooks';
-import { type CategoryData } from 'redux/slices/category';
+import { useCustomDispatch } from 'redux/hooks';
+import { createCategory, type CategoryData } from 'redux/slices/category';
 
 const initialState: CategoryData = {
   categoryName: '',
-  description: null
+  description: null,
+  image: '',
+  files: null
 };
 
 export const CreateCategoryForm = (): JSX.Element => {
-  // const dispatch = useCustomDispatch();
+  const dispatch = useCustomDispatch();
   const [data, setData] = useState<CategoryData>(initialState);
+  const [preview, setPreview] = useState<string | null>();
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,10 +24,19 @@ export const CreateCategoryForm = (): JSX.Element => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
+  const fileSelectedHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const filesList = event.target.files as FileList;
+    if (filesList[0]) {
+      setData({ ...data, files: filesList[0] });
+      setPreview(URL.createObjectURL(filesList[0]));
+    } else {
+      setPreview(null);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(data);
-    // dispatch()
+    dispatch(createCategory(data));
   };
 
   return (
@@ -54,9 +66,29 @@ export const CreateCategoryForm = (): JSX.Element => {
               ></textarea>
             </div>
             <div className="inputPicCategory">
-              <img className="addImagenCategory" alt="Bx add" src={addImagen} />
-              <div className="rectanglegrey" />
-              <div className="add-image">Add image</div>
+              {preview ? (
+                <img
+                  className="imagePreview"
+                  src={preview}
+                  alt="Imagen del producto"
+                />
+              ) : (
+                <>
+                  <img
+                    className="addImagenCategory"
+                    alt="Bx add"
+                    src={addImagen}
+                  />
+                  <div className="rectanglegrey" />
+                </>
+              )}
+              <input
+                type="file"
+                id="myFile"
+                name="filename"
+                onChange={fileSelectedHandler}
+                accept="image/*"
+              />
             </div>
           </div>
           <div className="ProductBtnCtgry">
