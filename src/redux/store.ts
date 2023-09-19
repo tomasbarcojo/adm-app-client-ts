@@ -6,11 +6,13 @@ import {
 
 import authReducer from './slices/auth';
 import categoryReducer from './slices/category';
+import productReducer from './slices/products';
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    category: categoryReducer
+    category: categoryReducer,
+    product: productReducer
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare({
