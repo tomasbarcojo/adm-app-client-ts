@@ -8,6 +8,8 @@ import { router } from 'routes/routes';
 import { SnackbarProvider } from 'notistack';
 import SnackbarCloseButton from 'components/NotificationAlerts/NotificationAlerts';
 
+import './i18n';
+
 import './App.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
