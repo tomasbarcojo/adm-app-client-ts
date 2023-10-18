@@ -63,6 +63,8 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        DEPLOY_NAME: 'api'
+        BRANCH_NAME: ${{ github.ref_name }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
