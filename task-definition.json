@@ -1,8 +1,8 @@
 {
   "family": "DeployContainer",
-  "networkMode": null,
-  "taskRoleArn": null,
-  "executionRoleArn": null,
+  "networkMode": "awsvpc",
+  "taskRoleArn": "ecsTaskExecutionRole",
+  "executionRoleArn": "ecsTaskExecutionRole",
   "containerDefinitions": [
       {
           "name": "ReactAppContainer",
