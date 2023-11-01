@@ -1,106 +1,102 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  type PayloadAction
-} from '@reduxjs/toolkit';
-
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'utils/axios';
-import { enqueueSnackbar } from 'notistack';
-
-export interface LoginData {
-  username: string;
-  password: string;
-  keepLogged: boolean;
-}
-
-export interface AuthState {
-  accessToken: string | null;
-  isLoading: boolean;
-}
-
-const initialState: AuthState = {
-  accessToken: null,
-  isLoading: false
-};
-
+import { type AxiosError } from 'axios';
 const { REACT_APP_URL_API } = process.env;
-
 const urlApi: string = REACT_APP_URL_API as string;
 
-export const userLogin = createAsyncThunk(
-  'user/loginUser',
-  async (
-    data: LoginData,
-    thunkAPI
-  ): Promise<{
-    data: { user: { firstName: string }; access_token: string };
-    status: number;
-    keepLogged: boolean;
-  }> => {
-    const response = await axios.post(`${urlApi}/auth/local/signin`, data, {
+export interface ProductData {
+  name: string;
+  categoryId: number;
+  supplierId: number;
+  code: string;
+  price: number;
+  stock: number;
+  stockAlert: number;
+  description: string | null;
+  files: File | null;
+  image: string;
+}
+
+export interface ProductState {
+  id: number;
+  productName: string;
+  image: string;
+}
+
+const initialState: {
+  product: ProductState;
+  productList: ProductState[];
+  uploadProgress: number | null;
+} = {
+  product: {
+    id: 0,
+    productName: 'null',
+    image: 'null'
+  },
+  productList: [],
+  uploadProgress: null
+};
+
+interface ProductResponse {
+  data: {
+    id: number;
+    productName: string;
+    image: string;
+  };
+}
+
+export const createProduct = createAsyncThunk<
+  ProductResponse,
+  ProductData,
+  { rejectValue: AxiosError }
+>('product/createProduct', async (data: ProductData, thunkAPI) => {
+  try {
+    console.log('data', data);
+
+    const formData = new FormData();
+    formData.append('file', data.files as File);
+
+    console.log('formData', formData);
+
+    const imageUrl = await axios.post(`${urlApi}/upload/single`, formData, {
+      onUploadProgress: (ProgressEvent) => {
+        const total = ProgressEvent.total as number;
+        // setProgress((ProgressEvent.loaded / total) * 100);
+        console.log('upload progress', (ProgressEvent.loaded / total) * 100);
+      }
+    });
+
+    data = { ...data, image: imageUrl.data.imageName };
+
+    const response = await axios.post(`${urlApi}/product`, data, {
       signal: thunkAPI.signal
     });
-    return {
-      data: response.data,
-      status: response.status,
-      keepLogged: data.keepLogged
-    };
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error as AxiosError);
   }
-);
+});
 
 const productSlice = createSlice({
-  name: 'auth',
+  name: 'product',
   initialState,
   reducers: {
-    setAccessToken: (state, action: PayloadAction<string | null>) => {
-      state.accessToken = action.payload;
-    },
-    setIsLoading: (state, action: PayloadAction<boolean>) => {
-      state.isLoading = action.payload;
+    setProgress: (state, action) => {
+      state.uploadProgress = action.payload;
     }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(userLogin.pending, (state) => {
-        state.accessToken = null;
-        state.isLoading = true;
+      .addCase(createProduct.pending, (state) => {
+        console.log('pending', state);
       })
-      .addCase(userLogin.fulfilled, (state, action) => {
-        if (action.payload.status === 401)
-          enqueueSnackbar(`El usuario o contraseña son inválidos`, {
-            variant: 'error'
-          });
-        if (action.payload.status === 400)
-          enqueueSnackbar(`El usuario no existe, regístrese`, {
-            variant: 'error'
-          });
-        if (action.payload.status === 200) {
-          state.accessToken = action.payload.data.access_token;
-          state.isLoading = false;
-          enqueueSnackbar(`Bienvenido, ${action.payload.data.user.firstName}`, {
-            variant: 'success'
-          });
-          if (action.payload.keepLogged) {
-            localStorage.setItem(
-              'userData',
-              JSON.stringify(action.payload.data.user)
-            );
-          } else {
-            sessionStorage.setItem(
-              'userData',
-              JSON.stringify(action.payload.data.user)
-            );
-          }
-        }
+      .addCase(createProduct.fulfilled, (state, action) => {
+        console.log('fulfilled', state, action);
       })
-      .addCase(userLogin.rejected, () => {
-        enqueueSnackbar(`El usuario o contraseña son inválidos`, {
-          variant: 'error'
-        });
+      .addCase(createProduct.rejected, (state, action) => {
+        console.log('rejected', state, action);
       });
   }
 });
-
-export const { setAccessToken, setIsLoading } = productSlice.actions;
 
 export default productSlice.reducer;
