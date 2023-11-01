@@ -7,6 +7,7 @@ import activaLogo from '../../images/adm-logo-color.png';
 import { useCustomDispatch, useCustomSelector } from 'redux/hooks';
 import { type LoginData, userLogin } from 'redux/slices/auth';
 import { useNavigate } from 'react-router-dom';
+import i18n from '../../i18n';
 
 const initialState: LoginData = {
   username: '',
@@ -60,7 +61,7 @@ const Login: React.FC = () => {
     <form onSubmit={handleLogin}>
       <div className="loginContainer">
         <div className="loginLeft">
-          <p className="welcomeTitle">¡Bienvenido de nuevo!</p>
+          <p className="welcomeTitle">{i18n.t('login.welcomeBack')}</p>
         </div>
         <div className="loginRight">
           <div className="loginForm">
@@ -69,7 +70,7 @@ const Login: React.FC = () => {
               style={{ paddingBottom: '50px' }}
               alt="Activa logo"
             />
-            <p className="loginTitle">Inicio de sesión</p>
+            <p className="loginTitle">{i18n.t('login.loginDescription')}</p>
             <label className="usernameLabel">
               <img
                 src={userNameIcon}
@@ -79,7 +80,7 @@ const Login: React.FC = () => {
               <input
                 className="loginInput"
                 type="text"
-                placeholder="Usuario"
+                placeholder={i18n.t('login.usernameInput')}
                 name="username"
                 onChange={handleChange}
               />
@@ -93,16 +94,16 @@ const Login: React.FC = () => {
               <input
                 className="loginInput"
                 type="password"
-                placeholder="Contraseña"
+                placeholder={i18n.t('login.passwordInput')}
                 name="password"
                 onChange={handleChange}
               />
             </label>
             <button className="loginButton" type="submit">
-              Ingresar
+              {i18n.t('login.loginButton')}
             </button>
             <div className="forgottenPassword">
-              <a href="/password/reset">¿Olvidaste tu contraseña?</a>
+              <a href="/password/reset">{i18n.t('login.forgotPassword')}</a>
             </div>
           </div>
         </div>

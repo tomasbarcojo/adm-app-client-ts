@@ -1,0 +1,13 @@
+{
+  "login": {
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "loginDescription": "Inicio de sesión",
+    "usernameInput": "Usuario",
+    "passwordInput": "Contraseña",
+    "loginButton": "Ingresar",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "admin": {
+    "test-key": "esto es un testing"
+  }
+}
