@@ -5,6 +5,7 @@ import './CreateCateogryForm.css';
 import addImagen from './addimagen.svg';
 import { useCustomDispatch } from 'redux/hooks';
 import { createCategory, type CategoryData } from 'redux/slices/category';
+import { InputText } from 'components/Inputs/InputText/InputText';
 
 const initialState: CategoryData = {
   categoryName: '',
@@ -46,15 +47,14 @@ export const CreateCategoryForm = (): JSX.Element => {
           <div className="inputsCategoryForm">
             <div className="inputsTextFromCategory">
               <div className="nameCategory">
-                {/* {<InputText placeHolder="Name" />} */}
                 <div className="component">
-                  <input
-                    className="inputText"
-                    type="text"
-                    placeholder="Name"
-                    name="categoryName"
-                    onChange={handleChange}
-                  ></input>
+                  {
+                    <InputText
+                      placeHolder="Name"
+                      inputName="categoryName"
+                      onInputChange={handleChange}
+                    />
+                  }
                 </div>
               </div>
               <textarea

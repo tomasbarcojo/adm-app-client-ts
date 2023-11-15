@@ -273,10 +273,10 @@ const SideBar: React.FC = () => {
             />
             <Route path="/product" element={<CreateProductForm />} />
             <Route path="/category" element={<CreateCategoryForm />} />
-            <Route
+            {/* <Route
               path="/inputtext"
               element={<InputText placeHolder="Test" />}
-            />
+            /> */}
             <Route
               path="/inputselect"
               element={<InputSelect placeHolder="Test" />}

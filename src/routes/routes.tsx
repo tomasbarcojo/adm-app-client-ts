@@ -5,6 +5,8 @@ import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
 import PrivateRoutes from 'auth/PrivateRoutes';
 import PasswordReset from 'pages/PasswordReset/PasswordReset';
+import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
+import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 
 export const router = createBrowserRouter([
   {
@@ -33,11 +35,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'product',
-        element: <h1>Product</h1>
+        element: <CreateProductForm />
       },
       {
         path: 'category',
-        element: <h1>Cateogry</h1>
+        element: <CreateCategoryForm />
       },
       {
         path: 'inputtext',
