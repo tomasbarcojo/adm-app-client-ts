@@ -1,17 +1,16 @@
 import React, { useRef } from 'react';
 import './SideBar.css';
-// import profileImg from '../../images/profile.jpeg';
-import avatarImg from '../../images/profileimg.svg';
+// import avatarImg from '../../images/profileimg.svg';
+import avatarImg from '../../images/profile.jpeg';
 import { Link, Outlet } from 'react-router-dom';
+import { sideBarRoutes } from 'routes/routes';
 
 const Admin: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
     const arrowParent = e.currentTarget.parentElement?.parentElement;
-    if (arrowParent != null) {
-      arrowParent.classList.toggle('showMenu');
-    }
+    if (arrowParent != null) arrowParent.classList.toggle('showMenu');
   };
 
   const handleToggleSideBar = (
@@ -30,174 +29,55 @@ const Admin: React.FC = () => {
           <span className="logo_name">Activa</span>
         </div>
         <ul className="nav-links">
-          <li>
-            <Link to="/admin/test">
-              <i className="bx bx-grid-alt"></i>
-              <span className="link_name">Dashboard</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link to="/admin/test" className="link_name">
-                  Dashboard
+          {sideBarRoutes.children.map((route) =>
+            route.type === 'title' ? (
+              <li key={route.key}>
+                <Link to={route.path ?? ''}>
+                  <i className={route.icon}></i>
+                  <span className="link_name">{route.name}</span>
                 </Link>
+                <ul className="sub-menu blank">
+                  <li>
+                    <Link to={route.path ?? ''} className="link_name">
+                      {route.name}
+                    </Link>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
-          <li>
-            <div className="iocn-link">
-              <Link to="/admin">
-                <i className="bx bx-collection"></i>
-                <span className="link_name">Category</span>
-              </Link>
-              <i
-                className="bx bxs-chevron-down arrow"
-                onClick={handleClick}
-                role="button"
-                tabIndex={0}
-              ></i>
-            </div>
-            <ul className="sub-menu">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Category
-                </Link>
+            ) : (
+              <li key={route.key}>
+                <div className="icon-link">
+                  <Link to={route.defaultPath ?? 'dashboard'}>
+                    <i className={route.icon}></i>
+                    <span className="link_name">{route.name}</span>
+                  </Link>
+                  <i
+                    className="bx bxs-chevron-down arrow"
+                    onClick={handleClick}
+                    role="button"
+                    tabIndex={0}
+                  ></i>
+                </div>
+                <ul className="sub-menu">
+                  <li>
+                    <Link
+                      className="link_name"
+                      to={route.defaultPath ?? 'dashboard'}
+                    >
+                      {route.name}
+                    </Link>
+                  </li>
+                  {route.children?.map((child) => (
+                    <li key={child.key}>
+                      <Link to={`${route.path}/${child.path}`}>
+                        {child.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
-              <li>
-                <Link to="/admin">HTML & CSS</Link>
-              </li>
-              <li>
-                <Link to="/admin">JavaScript</Link>
-              </li>
-              <li>
-                <Link to="/admin">PHP & MySQL</Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div className="iocn-link">
-              <Link to="/admin">
-                <i className="bx bx-book-alt"></i>
-                <span className="link_name">Posts</span>
-              </Link>
-              <i
-                className="bx bxs-chevron-down arrow"
-                onClick={handleClick}
-                role="button"
-                tabIndex={0}
-              ></i>
-            </div>
-            <ul className="sub-menu">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Posts
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin">Web Design</Link>
-              </li>
-              <li>
-                <Link to="/admin">Login Form</Link>
-              </li>
-              <li>
-                <Link to="/admin">Card Design</Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/admin">
-              <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="link_name">Analytics</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Analytics
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/admin">
-              <i className="bx bx-line-chart"></i>
-              <span className="link_name">Chart</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Chart
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div className="iocn-link">
-              <Link to="/admin">
-                <i className="bx bx-plug"></i>
-                <span className="link_name">Plugins</span>
-              </Link>
-              <i
-                className="bx bxs-chevron-down arrow"
-                onClick={handleClick}
-                role="button"
-                tabIndex={0}
-              ></i>
-            </div>
-            <ul className="sub-menu">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Plugins
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin">UI Face</Link>
-              </li>
-              <li>
-                <Link to="/admin">Pigments</Link>
-              </li>
-              <li>
-                <Link to="/admin">Box Icons</Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/admin">
-              <i className="bx bx-compass"></i>
-              <span className="link_name">Explore</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Explore
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/admin">
-              <i className="bx bx-history"></i>
-              <span className="link_name">History</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/admin">
-                  History
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to="/admin">
-              <i className="bx bx-cog"></i>
-              <span className="link_name">Setting</span>
-            </Link>
-            <ul className="sub-menu blank">
-              <li>
-                <Link className="link_name" to="/admin">
-                  Setting
-                </Link>
-              </li>
-            </ul>
-          </li>
+            )
+          )}
           <li>
             <div className="profile-details">
               <div className="profile-content">

@@ -48,13 +48,11 @@ export const CreateCategoryForm = (): JSX.Element => {
             <div className="inputsTextFromCategory">
               <div className="nameCategory">
                 <div className="component">
-                  {
-                    <InputText
-                      placeHolder="Name"
-                      inputName="categoryName"
-                      onInputChange={handleChange}
-                    />
-                  }
+                  <InputText
+                    placeHolder="Name"
+                    inputName="categoryName"
+                    onInputChange={handleChange}
+                  />
                 </div>
               </div>
               <textarea
