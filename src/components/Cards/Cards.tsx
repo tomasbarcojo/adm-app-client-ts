@@ -11,8 +11,6 @@ import lineImg from './line.svg';
 //   iconBackgroundColor: string;
 //   link: string;
 // }
-
-// export const Cards = (data: DataProps): JSX.Element => {
 export const Cards = (): JSX.Element => {
   return (
     <div className="overlap-group">
@@ -21,7 +19,7 @@ export const Cards = (): JSX.Element => {
       <div className="cantidad-ventas">Cantidad Ventas Mensuales</div>
       <div className="see-more">See more</div>
       <div className="element">45</div>
-      <img className="arrow" alt="Arrow" src={arrowImg} />
+      <img className="arrowCard" alt="Arrow" src={arrowImg} />
       <img className="line" alt="Line" src={lineImg} />
       <img className="frame" alt="Frame" src={iconImg} />
     </div>

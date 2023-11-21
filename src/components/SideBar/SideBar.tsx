@@ -48,7 +48,7 @@ const SideBar: React.FC = () => {
             </ul>
           </li>
           <li>
-            <div className="iocn-link">
+            <div className="icon-link">
               <Link to="/admin">
                 <i className="bx bx-collection"></i>
                 <span className="link_name">Category</span>
@@ -78,7 +78,7 @@ const SideBar: React.FC = () => {
             </ul>
           </li>
           <li>
-            <div className="iocn-link">
+            <div className="icon-link">
               <Link to="/admin">
                 <i className="bx bx-book-alt"></i>
                 <span className="link_name">Posts</span>
@@ -134,7 +134,7 @@ const SideBar: React.FC = () => {
             </ul>
           </li>
           <li>
-            <div className="iocn-link">
+            <div className="icon-link">
               <Link to="/admin">
                 <i className="bx bx-plug"></i>
                 <span className="link_name">Plugins</span>

@@ -59,12 +59,12 @@ body{
 .sidebar .nav-links li:hover{
   background: #1d1b31;
 }
-.sidebar .nav-links li .iocn-link{
+.sidebar .nav-links li .icon-link{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.sidebar.close .nav-links li .iocn-link{
+.sidebar.close .nav-links li .icon-link{
   display: block
 }
 .sidebar .nav-links li i{
