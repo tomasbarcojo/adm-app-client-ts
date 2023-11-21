@@ -7,6 +7,7 @@ import PrivateRoutes from 'auth/PrivateRoutes';
 import PasswordReset from 'pages/PasswordReset/PasswordReset';
 import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
 import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
+import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 import Cards from 'components/Cards';
 
 // : Array<{
@@ -98,6 +99,32 @@ export const sideBarRoutes = {
           path: 'list',
           icon: 'bx bx-plus',
           element: <CreateCategoryForm />
+        }
+      ]
+    },
+    {
+      type: 'collapse',
+      name: 'Client',
+      key: 'client',
+      path: 'client',
+      defaultPath: 'client/list',
+      icon: 'bx bx-user',
+      children: [
+        {
+          type: 'title',
+          name: 'New client',
+          key: 'new-client',
+          path: 'new',
+          icon: 'bx bx-plus',
+          element: <CreateClientForm />
+        },
+        {
+          type: 'title',
+          name: 'List',
+          key: 'list-client',
+          path: 'list',
+          icon: 'bx bx-plus',
+          element: <CreateClientForm />
         }
       ]
     }
