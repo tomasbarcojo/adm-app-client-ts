@@ -7,6 +7,7 @@ import PrivateRoutes from 'auth/PrivateRoutes';
 import PasswordReset from 'pages/PasswordReset/PasswordReset';
 import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
 import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
+import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: 'inputselect',
         element: <h1>InputSelect</h1>
+      },
+      {
+        path: 'clients',
+        element: <CreateClientForm />
       }
     ]
   }
