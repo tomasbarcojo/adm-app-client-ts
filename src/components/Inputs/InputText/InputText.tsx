@@ -4,6 +4,7 @@ import './InputText.css';
 export const InputText = (props: {
   placeHolder: string;
   inputName: string;
+  inputType?: string;
   onInputChange: (value: ChangeEvent<HTMLInputElement>) => void;
 }): JSX.Element => {
   const [inputValue, setInputValue] = useState<string | number>('');
@@ -15,15 +16,23 @@ export const InputText = (props: {
   };
 
   return (
-    <div className="component">
+    <div className="input-contain">
       <input
         className="inputText"
-        type="text"
+        type={props.inputType ?? 'text'}
         name={props.inputName}
-        placeholder={props.placeHolder}
+        autoComplete="off"
         value={inputValue}
         onChange={handleInputChange}
-      ></input>
+        aria-labelledby="placeholder-fname"
+      />
+      <label
+        className="placeholder-text-label"
+        htmlFor="fname"
+        id="placeholder-fname"
+      >
+        <div className="placeholder-text">{props.placeHolder}</div>
+      </label>
     </div>
   );
 };
