@@ -5,6 +5,8 @@ import addImagen from './addimagen.svg';
 import { BoxForm } from 'components/Forms/BoxForm';
 import { createProduct, type ProductData } from 'redux/slices/products';
 import { useCustomDispatch } from 'redux/hooks';
+import { InputText } from 'components/Inputs/InputText/InputText';
+import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 
 const initialState: ProductData = {
   name: '',
@@ -57,14 +59,11 @@ export const CreateProductForm = (): JSX.Element => {
             <div className="inputsTextFrom">
               <div className="oneinput">
                 <div className="component">
-                  <input
-                    className="inputText"
-                    type="text"
-                    placeholder="Name"
-                    name="productName"
-                    onChange={handleChange}
-                  ></input>
-                  {/* {<InputText placeHolder="Name" />} */}
+                  <InputText
+                    placeHolder="Name"
+                    inputName="productName"
+                    onInputChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="twoinput">
@@ -86,7 +85,7 @@ export const CreateProductForm = (): JSX.Element => {
                   {/* {<InputSelect placeHolder="Category" />} */}
                 </div>
                 <div className="supplierProduct">
-                  <div className="component">
+                  {/* <div className="component">
                     <select
                       className="inputSelect"
                       placeholder="Supplier"
@@ -99,58 +98,49 @@ export const CreateProductForm = (): JSX.Element => {
                       <option value="option2">1</option>
                       <option value="option2">2</option>
                     </select>
-                  </div>
-                  {/* {<InputSelect placeHolder="Supplier" />} */}
+                  </div> */}
+                  {<InputSelect placeHolder="Supplier" />}
                 </div>
               </div>
               <div className="twoinput">
                 <div className="codeProduct">
                   <div className="component">
-                    <input
-                      className="inputText"
-                      type="text"
-                      placeholder="Code"
-                      name="code"
-                      onChange={handleChange}
-                    ></input>
+                    <InputText
+                      placeHolder="Code"
+                      inputName="code"
+                      onInputChange={handleChange}
+                    />
                   </div>
-                  {/* {<InputText placeHolder="Code" />} */}
                 </div>
                 <div className="priceProduct">
                   <div className="component">
-                    <input
-                      className="inputText"
-                      type="number"
-                      placeholder="Price"
-                      name="price"
-                      onChange={handleChange}
-                    ></input>
+                    <InputText
+                      placeHolder="Price"
+                      inputName="price"
+                      onInputChange={handleChange}
+                    />
                   </div>
-                  {/* {<InputText placeHolder="Price" />} */}
                 </div>
               </div>
               <div className="twoinput">
                 <div className="stockProduct">
                   <div className="component">
-                    <input
-                      className="inputText"
-                      type="number"
-                      placeholder="Stock"
-                      name="stock"
-                      onChange={handleChange}
-                    ></input>
+                    <InputText
+                      placeHolder="Stock"
+                      inputName="stock"
+                      onInputChange={handleChange}
+                    />
                   </div>
                   {/* {<InputText placeHolder="Stock" />} */}
                 </div>
                 <div className="stock-alertProduct">
                   <div className="component">
-                    <input
-                      className="inputText"
-                      type="number"
-                      placeholder="Stock Alert"
-                      name="stockAlert"
-                      onChange={handleChange}
-                    ></input>
+                    <InputText
+                      placeHolder="Stock Alert"
+                      inputName="stockAlert"
+                      onInputChange={handleChange}
+                      inputType="number"
+                    />
                   </div>
                   {/* {<InputText placeHolder="Stock Alert" />} */}
                 </div>

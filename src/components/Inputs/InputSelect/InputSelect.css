@@ -22,12 +22,10 @@
 }
 
 @media screen and (max-width: 470px) {
-  
   .inputSelect option {
     font-size: 10px; /* Ajusta el tamaño de fuente de las opciones */
     font-family: 'Roboto-Regular', Helvetica;
     white-space: nowrap; /* Evita que el texto de las opciones se divida en varias líneas */
     text-overflow: ellipsis; /* Muestra "..." cuando el texto de la opción es demasiado largo */
   }
-
 }
