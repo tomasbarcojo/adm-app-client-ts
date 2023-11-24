@@ -8,7 +8,7 @@ import PasswordReset from 'pages/PasswordReset/PasswordReset';
 import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
 import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 import { CreateClientForm } from 'components/Clients/CreateClientsForm';
-import Cards from 'components/Cards';
+import Dashboard from 'pages/Dashboard/dashboard';
 
 // : Array<{
 //   name: string;
@@ -44,11 +44,7 @@ export const sideBarRoutes = {
       key: 'dashboard',
       path: 'dashboard',
       icon: 'bx bx-home',
-      element: (
-        <div style={{ margin: '32px' }}>
-          <Cards />
-        </div>
-      )
+      element: <Dashboard />
     },
     {
       type: 'collapse',

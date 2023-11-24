@@ -1,0 +1,21 @@
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+  grid-gap: 16px;
+}
+
+@media screen and (max-width: 1500px) {
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 2fr));
+    grid-gap: 16px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 16px;
+  }
+}

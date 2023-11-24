@@ -1,8 +1,7 @@
 import React from 'react';
 import './Cards.css';
-import iconImg from './frame.svg';
-import arrowImg from './arrow.svg';
-import lineImg from './line.svg';
+import arrow from './arrow.svg';
+import { Link } from 'react-router-dom';
 
 // interface DataProps {
 //   title: string;
@@ -11,17 +10,20 @@ import lineImg from './line.svg';
 //   iconBackgroundColor: string;
 //   link: string;
 // }
-export const Cards = (): JSX.Element => {
+export const Cards = (props: {
+  title: string;
+  dataNumber: number | string;
+  link: string;
+}): JSX.Element => {
   return (
-    <div className="overlap-group">
-      <div className="rectangle" />
-      <div className="iconBackgroundYellow" />
-      <div className="cantidad-ventas">Cantidad Ventas Mensuales</div>
-      <div className="see-more">See more</div>
-      <div className="element">45</div>
-      <img className="arrowCard" alt="Arrow" src={arrowImg} />
-      <img className="line" alt="Line" src={lineImg} />
-      <img className="frame" alt="Frame" src={iconImg} />
+    <div className="rectangle">
+      <div className="cantidad-ventas">{props.title}</div>
+      <div className="element">{props.dataNumber}</div>
+      <hr className="line" />
+      <Link to={props.link} className="botton-info">
+        <div className="see-more">Ver más</div>
+        <img className="arrow" alt="arrow" src={arrow} />
+      </Link>
     </div>
   );
 };

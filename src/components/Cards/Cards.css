@@ -1,174 +1,124 @@
-/* .cards {
-  position: absolute;
-  width: 236px;
-  height: 174px;
-}
-
-.cardcontainer {
-  position: absolute;
-  top: 22px;
-  background: conic-gradient(
-    from 180deg at 50% 50%,
-    #ffffff 0deg,
-    #f8f8f8 305.62deg,
-    #ffffff 360deg
-  );
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-
-  width: 236px;
-  height: 153px;
-}
-
-.cardbox {
-  position: absolute;
-  width: 62px;
-  height: 62px;
-  background: #fe9d18;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-  z-index: +1;
-}
-
-.cardtext {
-  width: 118px;
-  height: 36px;
-
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 15.3px;
-  line-height: 18px;
-  display: flex;
-  align-items: center;
-  text-align: right;
-}
-
-.cardinfo {
-  width: 113px;
-  height: 49px;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 38px;
-  line-height: 57px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #454545;
-}
-
-.seemorebtn {
-  background: transparent;
-  border: none;
-
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-
-  color: #1e1e1e;
-} */
-
-.overlap-group {
-  height: 175px;
-  position: relative;
-}
-
 .rectangle {
-  background: conic-gradient(from 180deg at 50% 50%, rgb(255, 255, 255) 0deg, rgb(247.56, 247.56, 247.56) 305.62deg);
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-color: #1d90f2;
   border-radius: 4px;
+  border-top-style: solid;
+  border-top-width: 6px;
   box-shadow: 0px 4px 4px #00000040;
   height: 153px;
-  left: 0;
-  position: absolute;
-  top: 22px;
-  width: 236px;
-}
-
-.iconBackgroundYellow {
-  background-color: #fe9d18;
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px #00000040;
-  height: 62px;
-  left: 9px;
-  position: absolute;
-  top: 0;
-  width: 62px;
+  width: 100%;
 }
 
 .cantidad-ventas {
   color: #626262;
-  font-family: "Roboto-Light", Helvetica;
-  font-size: 15.3px;
+  font-family: 'Roboto-Light', Helvetica;
+  font-size: 16px;
   font-weight: 300;
-  height: 36px;
-  left: 95px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: right;
-  top: 31px;
-  width: 118px;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.botton-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer; 
+  background-color: transparent; 
+  border: none;
 }
 
 .see-more {
-  color: #1e1e1e;
-  font-family: "Roboto-Regular", Helvetica;
+  color: #1E91ED;
+  font-family: 'Roboto-Regular', Helvetica;
   font-size: 12px;
   font-weight: 400;
   height: 14px;
-  left: 151px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
   text-align: center;
-  top: 147px;
-  white-space: nowrap;
   width: 51px;
 }
 
 .element {
   color: #454545;
-  font-family: "Poppins-Regular", Helvetica;
-  font-size: 38px;
+  font-family: 'Poppins-Regular', Helvetica;
+  font-size: 42px;
   font-weight: 400;
-  height: 49px;
-  left: 61px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
   text-align: center;
-  top: 79px;
-  width: 113px;
-}
-
-.arrowCard {
-  height: 7px;
-  left: 206px;
-  object-fit: cover;
-  position: absolute;
-  top: 152px;
-  width: 12px;
 }
 
 .line {
-  height: 1px;
-  left: 10px;
-  object-fit: cover;
-  position: absolute;
-  top: 142px;
-  width: 209px;
+  color: #d9d9d9;
+  width: 90%;
+  border-top: 1px solid
 }
 
-.frame {
-  height: 47px;
-  left: 16px;
-  position: absolute;
-  top: 8px;
-  width: 47px;
+@media screen and (max-width: 800px) {
 }
 
+@media screen and (max-width: 470px) {
+  .rectangle {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-color: #1d90f2;
+    border-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 6px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 123px;
+    width: 100%;
+  }
+  
+  .cantidad-ventas {
+    color: #626262;
+    font-family: 'Roboto-Light', Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  .info-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .botton-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer; 
+    background-color: transparent; 
+    border: none;
+  }
+  
+  .see-more {
+    color: #1E91ED;
+    font-family: 'Roboto-Regular', Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    height: 14px;
+    text-align: center;
+    width: 51px;
+  }
+  
+  .element {
+    color: #454545;
+    font-family: 'Poppins-Regular', Helvetica;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .line {
+    color: #d9d9d9;
+    width: 90%;
+    border-top: 1px solid
+  }
+}
