@@ -110,7 +110,7 @@ const Admin: React.FC = () => {
           ></i>
           <span className="text">Drop Down Sidebar</span>
         </div>
-        <div>
+        <div style={{ margin: '32px' }}>
           <Outlet />
         </div>
       </section>
