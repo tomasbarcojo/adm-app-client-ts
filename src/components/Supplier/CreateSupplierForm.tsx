@@ -43,84 +43,64 @@ export const CreateSupplierForm = (): JSX.Element => {
           <div className="inputsContainerForm">
             <div className="inputsForm">
               <div className="twoinput">
-                {
                   <InputText
                     placeHolder="Business Name"
                     inputName="businessName"
                     onInputChange={handleChange}
                   />
-                }
-                {
                   <InputText
                     placeHolder="CUIT"
                     inputName="cuit"
                     onInputChange={handleChange}
                   />
-                }
               </div>
               <div className="twoinput">
-                {
                   <InputText
                     placeHolder="Phone"
                     inputName="phone"
                     onInputChange={handleChange}
                   />
-                }
-                {
                   <InputText
                     placeHolder="Alt Phone"
                     inputName="altPhone"
                     onInputChange={handleChange}
                   />
-                }
               </div>
               <div className="twoinput">
-                {
                   <InputText
                     placeHolder="Address"
                     inputName="address"
                     onInputChange={handleChange}
                   />
-                }
-                {
                   <InputText
                     placeHolder="City"
                     inputName="city"
                     onInputChange={handleChange}
                   />
-                }
               </div>
               <div className="twoinput">
-                {
                   <InputText
                     placeHolder="CP"
                     inputName="CP"
                     onInputChange={handleChange}
                   />
-                }
-                {
                   <InputText
                     placeHolder="Bank Account 1"
                     inputName="bankAccount1"
                     onInputChange={handleChange}
                   />
-                }
               </div>
               <div className="twoinput">
-                {
                   <InputText
                     placeHolder="Bank Account 2"
                     inputName="bankAccount2"
                     onInputChange={handleChange}
                   />
-                }
-                {
                   <InputText
                     placeHolder="Bank Account 3"
                     inputName="bankAccount3"
                     onInputChange={handleChange}
                   />
-                }
               </div>
               <textarea
                 className="textareaInput"
@@ -128,7 +108,7 @@ export const CreateSupplierForm = (): JSX.Element => {
                 placeholder="Description"
                 maxLength={500}
                 onChange={handleChange}
-              ></textarea>
+              />
             </div>
           </div>
           <div className="boxFormButtons">
