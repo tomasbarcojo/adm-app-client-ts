@@ -2,7 +2,6 @@ import React, { type ChangeEvent, useState } from 'react';
 import { useCustomDispatch } from 'redux/hooks';
 import { BoxForm } from 'components/Forms/BoxForm';
 import { InputText } from 'components/Inputs/InputText/InputText';
-import './CreateClientsForm.css';
 import { createClient, type ClientData } from 'redux/slices/clients';
 
 const initialState: ClientData = {
@@ -34,106 +33,58 @@ export const CreateClientForm = (): JSX.Element => {
     <div>
       <BoxForm>
         <form onSubmit={handleSubmit}>
-          <div className="inputsClientsForm">
-            <div className="inputsTextFromClients">
+          <div className="inputsContainerForm">
+            <div className="inputsForm">
               <div className="twoinput">
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="Business Name"
-                        inputName="businessName"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="CUIT"
-                        inputName="cuit"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
+                <InputText
+                  placeHolder="Business Name"
+                  inputName="businessName"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="CUIT"
+                  inputName="cuit"
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="Phone"
-                        inputName="phone"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="Alt Phone"
-                        inputName="altPhone"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
+                <InputText
+                  placeHolder="Phone"
+                  inputName="phone"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="Alt Phone"
+                  inputName="altPhone"
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="Address"
-                        inputName="address"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="City"
-                        inputName="city"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
+                <InputText
+                  placeHolder="Address"
+                  inputName="address"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="City"
+                  inputName="city"
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="CP"
-                        inputName="CP"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
-                <div className="nameClients">
-                  <div className="component">
-                    {
-                      <InputText
-                        placeHolder="Price List"
-                        inputName="priceList"
-                        onInputChange={handleChange}
-                      />
-                    }
-                  </div>
-                </div>
+                <InputText
+                  placeHolder="CP"
+                  inputName="CP"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="Price List"
+                  inputName="priceList"
+                  onInputChange={handleChange}
+                />
               </div>
               <textarea
-                className="textareaCategory"
+                className="textareaInput"
                 name="description"
                 placeholder="Description"
                 maxLength={500}
@@ -141,7 +92,7 @@ export const CreateClientForm = (): JSX.Element => {
               ></textarea>
             </div>
           </div>
-          <div className="ProductBtnCtgry">
+          <div className="boxFormButtons">
             <button className="doneBtn" type="submit">
               Done
             </button>

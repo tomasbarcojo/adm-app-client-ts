@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.css';
+import './DashboardCard.css';
 import arrow from './arrow.svg';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 //   iconBackgroundColor: string;
 //   link: string;
 // }
-export const Cards = (props: {
+export const DashboardCards = (props: {
   title: string;
   dataNumber: number | string;
   link: string;
@@ -28,4 +28,4 @@ export const Cards = (props: {
   );
 };
 
-export default Cards;
+export default DashboardCards;

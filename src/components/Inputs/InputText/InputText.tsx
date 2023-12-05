@@ -16,7 +16,7 @@ export const InputText = (props: {
   };
 
   return (
-    <div className="input-contain">
+    <div className="input-text-contain">
       <input
         className="inputText"
         type={props.inputType ?? 'text'}

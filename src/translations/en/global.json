@@ -1,11 +1,11 @@
 {
   "login": {
-    "welcomeBack": "¡Welcome back!",
+    "welcomeBack": "Welcome back!",
     "loginDescription": "Login",
     "usernameInput": "User",
     "passwordInput": "Password",
     "loginButton": "Login",
-    "forgotPassword": "¿Forgot password?"
+    "forgotPassword": "Forgot password?"
   },
   "admin": {
     "test-key": "this is a testing"

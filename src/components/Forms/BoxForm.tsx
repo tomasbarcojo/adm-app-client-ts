@@ -16,7 +16,7 @@ export const BoxForm: React.FC<BoxFormProps> = ({ children }) => {
             alt="Bx add to queue"
             src={addItem}
           />
-          <div className="add-item">Add Item</div>
+          <div className="box-title">Add Item</div>
         </div>
       </div>
       <div className="rectangleWhiteForm"> {children} </div>

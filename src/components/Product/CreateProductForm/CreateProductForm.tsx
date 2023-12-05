@@ -8,6 +8,231 @@ import { useCustomDispatch } from 'redux/hooks';
 import { InputText } from 'components/Inputs/InputText/InputText';
 import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 
+const countries = [
+  'Afghanistan',
+  'Albania',
+  'Algeria',
+  'Andorra',
+  'Angola',
+  'Anguilla',
+  'Antigua &amp; Barbuda',
+  'Argentina',
+  'Armenia',
+  'Aruba',
+  'Australia',
+  'Austria',
+  'Azerbaijan',
+  'Bahamas',
+  'Bahrain',
+  'Bangladesh',
+  'Barbados',
+  'Belarus',
+  'Belgium',
+  'Belize',
+  'Benin',
+  'Bermuda',
+  'Bhutan',
+  'Bolivia',
+  'Bosnia &amp; Herzegovina',
+  'Botswana',
+  'Brazil',
+  'British Virgin Islands',
+  'Brunei',
+  'Bulgaria',
+  'Burkina Faso',
+  'Burundi',
+  'Cambodia',
+  'Cameroon',
+  'Canada',
+  'Cape Verde',
+  'Cayman Islands',
+  'Central Arfrican Republic',
+  'Chad',
+  'Chile',
+  'China',
+  'Colombia',
+  'Congo',
+  'Cook Islands',
+  'Costa Rica',
+  'Cote D Ivoire',
+  'Croatia',
+  'Cuba',
+  'Curacao',
+  'Cyprus',
+  'Czech Republic',
+  'Denmark',
+  'Djibouti',
+  'Dominica',
+  'Dominican Republic',
+  'Ecuador',
+  'Egypt',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Eritrea',
+  'Estonia',
+  'Ethiopia',
+  'Falkland Islands',
+  'Faroe Islands',
+  'Fiji',
+  'Finland',
+  'France',
+  'French Polynesia',
+  'French West Indies',
+  'Gabon',
+  'Gambia',
+  'Georgia',
+  'Germany',
+  'Ghana',
+  'Gibraltar',
+  'Greece',
+  'Greenland',
+  'Grenada',
+  'Guam',
+  'Guatemala',
+  'Guernsey',
+  'Guinea',
+  'Guinea Bissau',
+  'Guyana',
+  'Haiti',
+  'Honduras',
+  'Hong Kong',
+  'Hungary',
+  'Iceland',
+  'India',
+  'Indonesia',
+  'Iran',
+  'Iraq',
+  'Ireland',
+  'Isle of Man',
+  'Israel',
+  'Italy',
+  'Jamaica',
+  'Japan',
+  'Jersey',
+  'Jordan',
+  'Kazakhstan',
+  'Kenya',
+  'Kiribati',
+  'Kosovo',
+  'Kuwait',
+  'Kyrgyzstan',
+  'Laos',
+  'Latvia',
+  'Lebanon',
+  'Lesotho',
+  'Liberia',
+  'Libya',
+  'Liechtenstein',
+  'Lithuania',
+  'Luxembourg',
+  'Macau',
+  'Macedonia',
+  'Madagascar',
+  'Malawi',
+  'Malaysia',
+  'Maldives',
+  'Mali',
+  'Malta',
+  'Marshall Islands',
+  'Mauritania',
+  'Mauritius',
+  'Mexico',
+  'Micronesia',
+  'Moldova',
+  'Monaco',
+  'Mongolia',
+  'Montenegro',
+  'Montserrat',
+  'Morocco',
+  'Mozambique',
+  'Myanmar',
+  'Namibia',
+  'Nauro',
+  'Nepal',
+  'Netherlands',
+  'Netherlands Antilles',
+  'New Caledonia',
+  'New Zealand',
+  'Nicaragua',
+  'Niger',
+  'Nigeria',
+  'North Korea',
+  'Norway',
+  'Oman',
+  'Pakistan',
+  'Palau',
+  'Palestine',
+  'Panama',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Philippines',
+  'Poland',
+  'Portugal',
+  'Puerto Rico',
+  'Qatar',
+  'Reunion',
+  'Romania',
+  'Russia',
+  'Rwanda',
+  'Saint Pierre &amp; Miquelon',
+  'Samoa',
+  'San Marino',
+  'Sao Tome and Principe',
+  'Saudi Arabia',
+  'Senegal',
+  'Serbia',
+  'Seychelles',
+  'Sierra Leone',
+  'Singapore',
+  'Slovakia',
+  'Slovenia',
+  'Solomon Islands',
+  'Somalia',
+  'South Africa',
+  'South Korea',
+  'South Sudan',
+  'Spain',
+  'Sri Lanka',
+  'St Kitts &amp; Nevis',
+  'St Lucia',
+  'St Vincent',
+  'Sudan',
+  'Suriname',
+  'Swaziland',
+  'Sweden',
+  'Switzerland',
+  'Syria',
+  'Taiwan',
+  'Tajikistan',
+  'Tanzania',
+  'Thailand',
+  "Timor L'Este",
+  'Togo',
+  'Tonga',
+  'Trinidad &amp; Tobago',
+  'Tunisia',
+  'Turkey',
+  'Turkmenistan',
+  'Turks &amp; Caicos',
+  'Tuvalu',
+  'Uganda',
+  'Ukraine',
+  'United Arab Emirates',
+  'United Kingdom',
+  'United States of America',
+  'Uruguay',
+  'Uzbekistan',
+  'Vanuatu',
+  'Vatican City',
+  'Venezuela',
+  'Vietnam',
+  'Virgin Islands (US)',
+  'Yemen',
+  'Zambia',
+  'Zimbabwe'
+];
+
 const initialState: ProductData = {
   name: '',
   categoryId: 0,
@@ -32,9 +257,9 @@ export const CreateProductForm = (): JSX.Element => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
-  const handleChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
-  };
+  // const handleChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+  //   setData({ ...data, [event.target.name]: event.target.value });
+  // };
 
   const fileSelectedHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const filesList = event.target.files as FileList;
@@ -55,105 +280,51 @@ export const CreateProductForm = (): JSX.Element => {
     <div>
       <BoxForm>
         <form onSubmit={handleSubmit}>
-          <div className="inputsComponentForm">
-            <div className="inputsTextFrom">
+          <div className="inputsContainerForm">
+            <div className="inputsForm">
               <div className="oneinput">
-                <div className="component">
-                  <InputText
-                    placeHolder="Name"
-                    inputName="productName"
-                    onInputChange={handleChange}
-                  />
-                </div>
+                <InputText
+                  placeHolder="Name"
+                  inputName="productName"
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
-                <div className="categoryProduct">
-                  <div className="component">
-                    <select
-                      className="inputSelect"
-                      placeholder="Category"
-                      name="categoryId"
-                      onChange={handleChangeSelect}
-                    >
-                      <option value="option1" selected>
-                        Category
-                      </option>
-                      <option value="option2">1</option>
-                      <option value="option2">2</option>
-                    </select>
-                  </div>
-                  {/* {<InputSelect placeHolder="Category" />} */}
-                </div>
-                <div className="supplierProduct">
-                  {/* <div className="component">
-                    <select
-                      className="inputSelect"
-                      placeholder="Supplier"
-                      name="supplierId"
-                      onChange={handleChangeSelect}
-                    >
-                      <option value="option1" selected>
-                        Supplier
-                      </option>
-                      <option value="option2">1</option>
-                      <option value="option2">2</option>
-                    </select>
-                  </div> */}
-                  {<InputSelect placeHolder="Supplier" />}
-                </div>
+                <InputSelect placeHolder="Supplier" dataList={countries} />
+                <InputSelect placeHolder="Supplier" dataList={countries} />
               </div>
               <div className="twoinput">
-                <div className="codeProduct">
-                  <div className="component">
-                    <InputText
-                      placeHolder="Code"
-                      inputName="code"
-                      onInputChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="priceProduct">
-                  <div className="component">
-                    <InputText
-                      placeHolder="Price"
-                      inputName="price"
-                      onInputChange={handleChange}
-                    />
-                  </div>
-                </div>
+                <InputText
+                  placeHolder="Code"
+                  inputName="code"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="Price"
+                  inputName="price"
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
-                <div className="stockProduct">
-                  <div className="component">
-                    <InputText
-                      placeHolder="Stock"
-                      inputName="stock"
-                      onInputChange={handleChange}
-                    />
-                  </div>
-                  {/* {<InputText placeHolder="Stock" />} */}
-                </div>
-                <div className="stock-alertProduct">
-                  <div className="component">
-                    <InputText
-                      placeHolder="Stock Alert"
-                      inputName="stockAlert"
-                      onInputChange={handleChange}
-                      inputType="number"
-                    />
-                  </div>
-                  {/* {<InputText placeHolder="Stock Alert" />} */}
-                </div>
+                <InputText
+                  placeHolder="Stock"
+                  inputName="stock"
+                  onInputChange={handleChange}
+                />
+                <InputText
+                  placeHolder="Stock Alert"
+                  inputName="stockAlert"
+                  onInputChange={handleChange}
+                  inputType="number"
+                />
               </div>
-              <div className="oneinput">
-                <textarea
-                  className="textareaProduct"
-                  name="description"
-                  placeholder="Description"
-                  maxLength={500}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
+              <textarea
+                className="textareaProduct"
+                name="description"
+                placeholder="Description"
+                maxLength={500}
+                onChange={handleChange}
+              />
             </div>
             <div className="inputPic">
               {preview ? (
@@ -164,8 +335,8 @@ export const CreateProductForm = (): JSX.Element => {
                 />
               ) : (
                 <>
-                  <img className="bx-image-add" alt="Bx add" src={addImagen} />
-                  <div className="rectangle-3" />
+                  <img className="addImage" alt="Bx add" src={addImagen} />
+                  <div className="rectanglegrey" />
                 </>
               )}
               <input
@@ -175,13 +346,9 @@ export const CreateProductForm = (): JSX.Element => {
                 onChange={fileSelectedHandler}
                 accept="image/*"
               />
-              {/* <div className="rectangle-3">
-                <img className="bx-image-add" alt="Bx add" src={addImagen} />
-              </div>
-              <div className="add-image">Add image</div> */}
             </div>
           </div>
-          <div className="ProductBtn">
+          <div className="boxFormButtons">
             <button className="backBtn">Back</button>
             <button className="doneBtn">Done</button>
           </div>

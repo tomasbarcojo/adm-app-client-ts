@@ -8,7 +8,7 @@ import PasswordReset from 'pages/PasswordReset/PasswordReset';
 import { CreateProductForm } from 'components/Product/CreateProductForm/CreateProductForm';
 import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 import { CreateClientForm } from 'components/Clients/CreateClientsForm';
-import Dashboard from 'pages/Dashboard/dashboard';
+import Dashboard from 'pages/Dashboard/Dashboard';
 
 // : Array<{
 //   name: string;

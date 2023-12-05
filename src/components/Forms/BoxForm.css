@@ -1,6 +1,10 @@
-.componentForm {
-  margin: 32px;
-  position: relative;
+.box-title {
+  color: #ffffff;
+  font-family: 'Roboto-Medium', Helvetica;
+  font-size: 18px;
+  font-weight: 500;
+  z-index: +1;
+  padding-inline: 10px;
 }
 
 .rectangleWhiteForm {
@@ -34,8 +38,105 @@
   align-items: center;
 }
 
+.inputsContainerForm {
+  display: flex;
+  flex-direction: row;
+  margin-inline: 6%;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.twoinput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  gap: 4%;
+}
+
+.oneinput {
+  margin-bottom: 35px;
+}
+
+.inputsForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-inline: 1%;
+  justify-content: center;
+}
+
+.boxFormButtons {
+  display: flex;
+  flex-direction: row;
+  margin-inline: 6%;
+  margin-block: 30px;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 800px) {
+  .inputsContainerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .twoinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0%;
+  }
+
+  .twoinput .input-select-contain {
+    margin-bottom: 35px;
+  }
+
+  .twoinput .input-text-contain {
+    margin-bottom: 35px;
+  }
+
+  .inputsForm {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-inline: 1%;
+  }
+
+  .boxFormButtons {
+    display: flex;
+    flex-direction: row;
+    margin-inline: 6%;
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+  }
+}
+
 @media screen and (max-width: 470px) {
-  .componentForm {
-    margin: 16px;
+  .inputsContainerForm {
+    margin-bottom: 0px;
+  }
+
+  .oneinput {
+    margin-bottom: 35px;
+  }
+
+  .doneBtn {
+    width: 100%;
+    margin-left: 0px;
+    margin-block: 6px;
+  }
+
+  .backBtn {
+    width: 100%;
+    margin-block: 6px;
+  }
+
+  .boxFormButtons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+    align-items: center;
   }
 }
