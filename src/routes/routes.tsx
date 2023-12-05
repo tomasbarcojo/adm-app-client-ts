@@ -9,6 +9,7 @@ import { CreateProductForm } from 'components/Product/CreateProductForm/CreatePr
 import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 import Dashboard from 'pages/Dashboard/Dashboard';
+import { CreateSupplierForm } from 'components/Supplier/CreateSupplierForm';
 
 // : Array<{
 //   name: string;
@@ -121,6 +122,32 @@ export const sideBarRoutes = {
           path: 'list',
           icon: 'bx bx-plus',
           element: <CreateClientForm />
+        }
+      ]
+    },
+    {
+      type: 'collapse',
+      name: 'Supplier',
+      key: 'supplier',
+      path: 'supplier',
+      defaultPath: 'supplier/list',
+      icon: 'bx bx-basket',
+      children: [
+        {
+          type: 'title',
+          name: 'New supplier',
+          key: 'new-supplier',
+          path: 'new',
+          icon: 'bx bx-plus',
+          element: <CreateSupplierForm />
+        },
+        {
+          type: 'title',
+          name: 'List',
+          key: 'list-supplier',
+          path: 'list',
+          icon: 'bx bx-plus',
+          element: <CreateSupplierForm />
         }
       ]
     }
