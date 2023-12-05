@@ -44,26 +44,24 @@ export const CreateCategoryForm = (): JSX.Element => {
     <div>
       <BoxForm>
         <form onSubmit={handleSubmit}>
-          <div className="inputsCategoryForm">
-            <div className="inputsTextFromCategory">
-              <div className="nameCategory">
-                <div className="component">
-                  <InputText
-                    placeHolder="Name"
-                    inputName="categoryName"
-                    onInputChange={handleChange}
-                  />
-                </div>
+          <div className="inputsContainerForm">
+            <div className="inputsForm">
+              <div className="oneinput">
+                <InputText
+                  placeHolder="Name"
+                  inputName="categoryName"
+                  onInputChange={handleChange}
+                />
               </div>
               <textarea
-                className="textareaCategory"
+                className="textareaInput"
                 name="description"
                 placeholder="Description"
                 maxLength={500}
                 onChange={handleChange}
               ></textarea>
             </div>
-            <div className="inputPicCategory">
+            <div className="inputPic">
               {preview ? (
                 <img
                   className="imagePreview"
@@ -72,11 +70,7 @@ export const CreateCategoryForm = (): JSX.Element => {
                 />
               ) : (
                 <>
-                  <img
-                    className="addImagenCategory"
-                    alt="Bx add"
-                    src={addImagen}
-                  />
+                  <img className="addImage" alt="Bx add" src={addImagen} />
                   <div className="rectanglegrey" />
                 </>
               )}
@@ -89,7 +83,7 @@ export const CreateCategoryForm = (): JSX.Element => {
               />
             </div>
           </div>
-          <div className="ProductBtnCtgry">
+          <div className="boxFormButtons">
             <button className="backBtn">Back</button>
             <button className="doneBtn" type="submit">
               Done

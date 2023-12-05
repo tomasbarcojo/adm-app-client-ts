@@ -28,7 +28,7 @@ const SideBar: React.FC = () => {
 
   return (
     <div>
-      <div className="sidebar close" ref={sideBarRef}>
+      {/* <div className="sidebar close" ref={sideBarRef}>
         <div className="logo-details">
           <i className="bx bxl-c-plus-plus"></i>
           <span className="logo_name">Activa</span>
@@ -273,17 +273,17 @@ const SideBar: React.FC = () => {
             />
             <Route path="/product" element={<CreateProductForm />} />
             <Route path="/category" element={<CreateCategoryForm />} />
-            {/* <Route
+            <Route
               path="/inputtext"
               element={<InputText placeHolder="Test" />}
-            /> */}
+            />
             <Route
               path="/inputselect"
               element={<InputSelect placeHolder="Test" />}
             />
           </Routes>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

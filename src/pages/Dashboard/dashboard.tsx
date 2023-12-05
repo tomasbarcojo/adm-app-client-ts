@@ -1,33 +1,33 @@
-import Cards from 'components/Cards';
 import React from 'react';
-import './dashboard.css';
+import DashboardCards from 'components/Cards';
+import './Dashboard.css';
 
 const Dashboard = () => {
   return (
     <div className="grid-cards">
-      <Cards
-        title="Cantidad de ventas mensuales"
+      <DashboardCards
+        title="Ventas mensuales"
         dataNumber={45}
         link="/admin/product/new"
       />
-      <Cards
-        title="Total Facturado En El Día"
+      <DashboardCards
+        title="Facturado en el día"
         dataNumber={(100).toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD'
         })}
         link="/login"
       />
-      <Cards
-        title="Total Facturado En El Mes"
+      <DashboardCards
+        title="Facturado en el mes"
         dataNumber={(50).toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD'
         })}
         link="/login"
       />
-      <Cards
-        title="Total Facturado En El Año"
+      <DashboardCards
+        title="Facturado en el año"
         dataNumber={(70).toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD'

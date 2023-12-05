@@ -1,31 +1,85 @@
-.component {
-  height: 27px;
+.autocomplete {
   position: relative;
-  width: auto;
 }
 
-.component .inputSelect {
-  background-color: #ffffff;
+.suggestions {
+  position: absolute;
+  top: 100%; /* Position the suggestions below the input */
+  left: 0;
+  width: 100%; /* Match the width of the input */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none; /* Remove top border to avoid double border with input */
+  border-radius: 0 0 4px 4px; /* Optional: Add some border-radius for styling */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 1; /* Ensure the suggestions overlay other elements */
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+.input-select-contain {
+  position: relative;
+  height: 3rem;
+  width: 100%;
+}
+
+.inputText {
+  width: 100%;
+  height: 3rem;
   border: none;
   border-bottom: 2px solid #e6e6e6;
+}
+
+.inputText:focus {
   outline: none;
+  border-color: #e6e6e6;
+}
+
+.inputText:focus + .placeholder-text-label .placeholder-text,
+:not(.inputText[value='']) + .placeholder-text-label .placeholder-text {
+  background-color: white;
+  font-size: 1.1rem;
   color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  width: 100%;
-  padding-block: 10px;
+  transform: translate(0, -110%);
 }
 
-.inputSelect .option {
-  font-family: 'Roboto-Regular', Helvetica;
+.inputText:focus + .placeholder-text-label .placeholder-text {
+  border-color: #7f7f7f;
+  color: #7f7f7f;
 }
 
-@media screen and (max-width: 470px) {
-  .inputSelect option {
-    font-size: 10px; /* Ajusta el tamaño de fuente de las opciones */
-    font-family: 'Roboto-Regular', Helvetica;
-    white-space: nowrap; /* Evita que el texto de las opciones se divida en varias líneas */
-    text-overflow: ellipsis; /* Muestra "..." cuando el texto de la opción es demasiado largo */
-  }
+.placeholder-text-label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.placeholder-text {
+  font-size: 1.2rem;
+  background-color: transparent;
+  transform: translate(0);
+  color: #7f7f7f;
+  transition: transform 0.15s ease-out, font-size 0.15s ease-out,
+    background-color 0.2s ease-out, color 0.15s ease-out;
+}
+
+.inputText,
+.placeholder-text-label {
+  font-size: 1.1rem;
 }

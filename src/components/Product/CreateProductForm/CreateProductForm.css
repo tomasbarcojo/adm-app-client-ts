@@ -1,101 +1,10 @@
-.inputsComponentForm {
-  display: flex;
-  flex-direction: row;
-  margin-inline: 6%;
-  margin-top: 80px;
-  margin-bottom: 50px;
-  /* justify-content: space-between; */
-}
-
-.inputsTextFrom {
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  margin-inline: 1%;
-}
-
 .inputPic {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 25%;
-  flex-wrap: wrap;
-  align-content: flex-end;
-}
-
-.twoinput {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 5%;
-}
-
-.oneinput {
-  margin-bottom: 5%;
-}
-
-.nameProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
-  width: 100%;
-}
-
-.categoryProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
-}
-
-.codeProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  left: 63px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
-}
-
-.supplierProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
-}
-
-.priceProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
-}
-
-.stockProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
+  width: 30%;
+  margin-left: 2%;
 }
 
 .textareaProduct {
@@ -116,32 +25,6 @@
   padding-left: 3px;
   height: 100px;
   max-width: 100%;
-}
-
-.stock-alertProduct {
-  color: #7f7f7f;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
-  width: 48%;
-}
-
-.add-image {
-  color: #00acc2;
-  font-family: 'Roboto-Regular', Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  text-align: center;
-  text-decoration: underline;
-  white-space: nowrap;
-  width: 90px;
-  margin-top: 5%;
-
-  cursor: pointer;
 }
 
 .doneBtn {
@@ -203,35 +86,17 @@
   justify-content: flex-end;
 }
 
-.rectangle-3 {
+.rectanglegrey {
   background-color: #eeeeee;
-  height: 50%;
-  width: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  /* max-width: 80%;
-  max-height: 80%; */
+  min-height: 300px;
+  width: 100%;
+  max-width: 250px;
+  margin: 25px;
 }
 
-.bx-image-add {
-  height: 15%;
+.addImage {
+  height: 100px;
   position: absolute;
-}
-
-.add-item {
-  color: #ffffff;
-  font-family: 'Roboto-Medium', Helvetica;
-  font-size: 18px;
-  font-weight: 500;
-  z-index: +1;
-  padding-inline: 10px;
-}
-
-.bx-add-to-queue {
-  height: 24px;
-  width: 24px;
 }
 
 @media screen and (max-width: 800px) {
@@ -240,72 +105,9 @@
     position: relative;
   }
 
-  .inputsComponentForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .twoinput {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0%;
-  }
-
-  .oneinput {
-    margin-bottom: 0%;
-  }
-
-  .nameProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
   .textareaProduct {
     width: 100%;
     margin-block: 5%;
-  }
-
-  .codeProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .priceProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-  .stockProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .stock-alertProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .categoryProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .supplierProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .descriptionProduct {
-    margin-top: 5%;
-  }
-
-  .inputsTextFrom {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin-inline: 1%;
   }
 
   .inputPic {
@@ -316,17 +118,6 @@
     width: 90%;
     margin-block: 5%;
     align-content: center;
-  }
-
-  .rectangle-3 {
-    background-color: #eeeeee;
-    height: 150px;
-    width: 180px;
-  }
-
-  .bx-image-add {
-    width: 10%;
-    position: absolute;
   }
 
   .ProductBtn {
@@ -345,83 +136,8 @@
     position: relative;
   }
 
-  .inputsComponentForm {
-    margin-bottom: 0px;
-  }
-
-  .ProductBtn {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 35px;
-    align-items: center;
-  }
-
-  .twoinput {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0%;
-  }
-
-  .rectangle-3 {
-    height: 115px;
-  }
-
-  .nameProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .codeProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
-  .priceProduct {
-    width: 100%;
-    margin-block: 5%;
-  }
-
   .textareaProduct {
     width: 100%;
     margin-block: 5%;
-  }
-  .oneinput {
-    margin-bottom: 0%;
-  }
-  .doneBtn {
-    color: #ffffff;
-    font-family: 'Roboto-Regular', Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    white-space: nowrap;
-
-    background-color: #00acc2;
-    border-color: transparent;
-    border-radius: 4px;
-    height: 47px;
-    width: 100%;
-    margin-left: 0px;
-    margin-block: 6px;
-  }
-
-  .backBtn {
-    color: #585858;
-    background-color: #eeeeee;
-    font-family: 'Roboto-Regular', Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    white-space: nowrap;
-
-    border: 1px solid;
-    border-color: #f2f2f2;
-    border-radius: 4px;
-    height: 47px;
-    width: 100%;
-    margin-block: 6px;
   }
 }
