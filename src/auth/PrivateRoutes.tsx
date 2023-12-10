@@ -13,3 +13,8 @@ export default function PrivateRoutes(props: {
   // }
   return <>{props.children}</>;
 }
+
+// https://blog.theashishmaurya.me/handling-jwt-access-and-refresh-token-using-axios-in-react-app
+// jwt refresh token react
+// https://dev.to/chafroudtarek/refresh-token-implementation-in-reactjs-53f7
+// https://www.codingnepalweb.com/file-upload-with-progress-bar-html-javascript/

@@ -26,10 +26,6 @@ const initialState: AuthState = {
   error: null
 };
 
-const { REACT_APP_URL_API } = process.env;
-
-const urlApi: string = REACT_APP_URL_API as string;
-
 interface AuthResponse {
   data: {
     access_token: string;
@@ -53,9 +49,12 @@ export const userLogin = createAsyncThunk<
   { rejectValue: AxiosError }
 >('user/loginUser', async (data: LoginData, thunkAPI) => {
   try {
-    const response = await axios.post(`${urlApi}/auth/local/signin`, data, {
-      signal: thunkAPI.signal
-    });
+    const response: { access_token: string; refresh_token: string } =
+      await axios.post(`/auth/local/signin`, data, {
+        signal: thunkAPI.signal
+      });
+    localStorage.setItem('token', response.access_token);
+    localStorage.setItem('refreshToken', response.refresh_token);
     return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error as AxiosError);
