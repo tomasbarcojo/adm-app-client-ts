@@ -6,7 +6,7 @@ import {
 
 import axios from 'utils/axios';
 import { enqueueSnackbar } from 'notistack';
-import { type AxiosError } from 'axios';
+import { type AxiosResponse, type AxiosError } from 'axios';
 
 export interface LoginData {
   username: string;
@@ -26,40 +26,48 @@ const initialState: AuthState = {
   error: null
 };
 
-const { REACT_APP_URL_API } = process.env;
-
-const urlApi: string = REACT_APP_URL_API as string;
-
 interface AuthResponse {
-  data: {
+  tokens: {
     access_token: string;
-    user: {
-      createdAt: string;
-      deletedAt: string | null;
-      emaik: string;
-      id: number;
-      firstName: string;
-      lastName: string;
-      updateAt: string;
-      username: string;
-    };
+    refresh_token: string;
   };
-  status: number;
+  user: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    username: string;
+    createdAt: string;
+    deletedAt: string | null;
+    updateAt: string;
+  };
 }
 
 export const userLogin = createAsyncThunk<
-  AuthResponse,
+  AxiosResponse<AuthResponse>,
   LoginData,
   { rejectValue: AxiosError }
 >('user/loginUser', async (data: LoginData, thunkAPI) => {
   try {
-    const response = await axios.post(`${urlApi}/auth/local/signin`, data, {
-      signal: thunkAPI.signal
-    });
+    const response = await axios.post<AuthResponse>(
+      `/auth/local/signin`,
+      data,
+      {
+        signal: thunkAPI.signal
+      }
+    );
+    localStorage.setItem('token', response.data.tokens.access_token);
+    localStorage.setItem('refreshToken', response.data.tokens.refresh_token);
     return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error as AxiosError);
   }
+});
+
+export const userLogout = createAsyncThunk('user/logout', async () => {
+  await axios.post(`/auth/logout`);
+  localStorage.clear();
+  window.location.assign('/login');
 });
 
 const authSlice = createSlice({
@@ -81,7 +89,7 @@ const authSlice = createSlice({
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         if (action.payload.status === 200) {
-          state.accessToken = action.payload.data.access_token;
+          state.accessToken = action.payload.data.tokens.access_token;
           state.isLoading = false;
           enqueueSnackbar(`Bienvenido, ${action.payload.data.user.firstName}`, {
             variant: 'success'

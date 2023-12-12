@@ -10,6 +10,7 @@ import { CreateCategoryForm } from 'components/Category/CreateCategoryForm';
 import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 import Dashboard from 'pages/Dashboard/Dashboard';
 import { CreateSupplierForm } from 'components/Supplier/CreateSupplierForm';
+import ListTest from 'components/ListTest/ListTest';
 
 // : Array<{
 //   name: string;
@@ -95,7 +96,7 @@ export const sideBarRoutes = {
           key: 'list-category',
           path: 'list',
           icon: 'bx bx-plus',
-          element: <CreateCategoryForm />
+          element: <ListTest />
         }
       ]
     },

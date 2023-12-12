@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'utils/axios';
 import { type AxiosError } from 'axios';
-const { REACT_APP_URL_API } = process.env;
-const urlApi: string = REACT_APP_URL_API as string;
 
 export interface ProductData {
   name: string;
@@ -58,7 +56,7 @@ export const createProduct = createAsyncThunk<
 
     console.log('formData', formData);
 
-    const imageUrl = await axios.post(`${urlApi}/upload/single`, formData, {
+    const imageUrl = await axios.post(`/upload/single`, formData, {
       onUploadProgress: (ProgressEvent) => {
         const total = ProgressEvent.total as number;
         // setProgress((ProgressEvent.loaded / total) * 100);
@@ -68,7 +66,7 @@ export const createProduct = createAsyncThunk<
 
     data = { ...data, image: imageUrl.data.imageName };
 
-    const response = await axios.post(`${urlApi}/product`, data, {
+    const response = await axios.post(`/product`, data, {
       signal: thunkAPI.signal
     });
     return response;

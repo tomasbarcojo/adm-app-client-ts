@@ -4,9 +4,12 @@ import './SideBar.css';
 import avatarImg from '../../images/profile.jpeg';
 import { Link, Outlet } from 'react-router-dom';
 import { sideBarRoutes } from 'routes/routes';
+import { useCustomDispatch } from 'redux/hooks';
+import { userLogout } from 'redux/slices/auth';
 
 const Admin: React.FC = () => {
   const sideBarRef = useRef<HTMLDivElement>(null);
+  const dispatch = useCustomDispatch();
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
     const arrowParent = e.currentTarget.parentElement?.parentElement;
@@ -19,6 +22,10 @@ const Admin: React.FC = () => {
     if (sideBarRef != null) {
       sideBarRef.current?.classList.toggle('close');
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(userLogout());
   };
 
   return (
@@ -84,7 +91,7 @@ const Admin: React.FC = () => {
                 <img src={avatarImg} alt="profileImg" />
               </div>
               <div className="name-job">
-                <div className="profile_name">Prem Shahi</div>
+                <div className="profile_name">Tomas Barcojo</div>
                 <div className="job">Web Desginer</div>
               </div>
               <i className="bx bx-log-out"></i>
@@ -109,6 +116,7 @@ const Admin: React.FC = () => {
             tabIndex={0}
           ></i>
           <span className="text">Drop Down Sidebar</span>
+          <button onClick={handleLogout}>Logout</button>
         </div>
         <div style={{ margin: '32px' }}>
           <Outlet />
