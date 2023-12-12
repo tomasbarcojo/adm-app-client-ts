@@ -1,0 +1,32 @@
+{
+  "family": "DeployContainer",
+  "networkMode": "awsvpc",
+  "taskRoleArn": "ecsTaskExecutionRole",
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "containerDefinitions": [
+      {
+          "name": "ReactAppContainer",
+          "image": "@@IMAGE_NAME_API@@",
+          "portMappings": [
+              {
+                  "containerPort": 3000,
+                  "hostPort": 3000,
+                  "protocol": "tcp"
+              }
+          ],
+          "essential": true,
+          "environment": [
+              {
+                  "name": "PORT",
+                  "value": "3000"
+              }
+          ]
+      }
+  ],
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "tags": []
+}
