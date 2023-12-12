@@ -3,20 +3,16 @@ import {
   type ThunkAction,
   type Action
 } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 import authReducer from './slices/auth';
-
-const persistAuthConfig = {
-  key: 'auth',
-  storage,
-  whiteList: ['accessToken']
-};
+import categoryReducer from './slices/category';
+import productReducer from './slices/products';
 
 const store = configureStore({
   reducer: {
-    auth: persistReducer(persistAuthConfig, authReducer)
+    auth: authReducer,
+    category: categoryReducer,
+    product: productReducer
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare({
@@ -33,6 +29,5 @@ export type Thunk = ThunkAction<
   unknown,
   Action<unknown>
 >;
-export const persistor = persistStore(store);
 
 export default store;

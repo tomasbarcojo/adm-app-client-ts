@@ -1,0 +1,88 @@
+.NavBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 24px;
+  background: #eeeeee;
+  height: 95px;
+}
+
+.NavBarTitle {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 31px;
+
+  color: #000000;
+}
+
+.NavBarBtn {
+  width: 258px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NotificationBtn {
+  background: #ffffff;
+  border: none;
+  width: 59px;
+  height: 59px;
+  border-radius: 50px;
+}
+
+.ProfileBtn {
+  background: #ffffff;
+  border: none;
+  width: 182px;
+  height: 59px;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ProfileBtn > h4 {
+  width: 99px;
+  /* height: 18px; */
+  padding-inline: 8px;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15.3px;
+
+  color: #000000;
+}
+
+.NotificationBtn .count {
+  position: absolute;
+  display: inline-block;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color:  #c00;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+ .NavBarContainer {
+  height: 75px;
+ }
+ .NavBarTitle {
+  font-weight: 400;
+  font-size: 19px;
+ }
+ .ProfileBtn {
+  width: 59px;
+ }
+ .ProfileBtn > h4 {
+  display: none;
+ }
+}
+

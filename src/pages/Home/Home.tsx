@@ -1,29 +1,42 @@
 import React from 'react';
+import { enqueueSnackbar } from 'notistack';
+import i18n from '../../i18n';
 
-import { useCustomDispatch, useCustomSelector } from 'hooks/redux';
-import { login } from 'redux/slices/auth';
+import '../../App.css';
 
 const Home: React.FC = () => {
-  const {
-    auth: { accessToken, isLoading }
-  } = useCustomSelector((state) => state);
-  const dispatch = useCustomDispatch();
-
-  console.log(accessToken);
-
-  const handleLogin = (): void => {
-    dispatch(
-      login({
-        username: 'admin',
-        password: '1234'
-      })
-    );
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
     <div>
-      Home <button onClick={handleLogin}>Login</button>
-      {isLoading === true ? 'loading...' : null}
+      Home
+      <button
+        onClick={() =>
+          enqueueSnackbar(`El usuario o contraseña son inválidos`, {
+            variant: 'error',
+            preventDuplicate: false
+          })
+        }
+      >
+        Login2
+      </button>
+      <p>{i18n.t('admin.test-key')}</p>
+      <button
+        onClick={() => {
+          changeLanguage('es');
+        }}
+      >
+        ES
+      </button>
+      <button
+        onClick={() => {
+          changeLanguage('en');
+        }}
+      >
+        EN
+      </button>
     </div>
   );
 };

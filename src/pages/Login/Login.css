@@ -1,0 +1,187 @@
+.loginContainer {
+  display: flex;
+  flex-direction: row;
+  background: #eeeeee;
+  height: 100svh; /* Fallback for browsers that do not support Custom Properties */
+  justify-content: center;
+}
+
+.loginLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 45%;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.49)),
+    url('../../images/skyscrapers.jpg');
+  border-radius: 0px 50px 50px 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+}
+
+.welcomeTitle {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500px;
+  font-size: 37px;
+  line-height: 44px;
+
+  color: #ffffff;
+}
+
+.registerButton {
+  width: 394px;
+  height: 55px;
+
+  background: #0e4473;
+  border-radius: 8px;
+
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.2px;
+  line-height: 23px;
+
+  color: #ffffff;
+  border: none;
+}
+
+.firstTimeTile {
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19.2px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+.loginTitle {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  /* identical to box height */
+  text-align: center;
+  color: #073156;
+
+  margin-bottom: 59px;
+}
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.loginForm .loginInput {
+  box-sizing: border-box; /* asegura que el ancho incluya el padding y el borde */
+  width: 100%;
+  height: 55px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  appearance: none;
+  border-radius: 8px;
+  border: none;
+  padding: 0px 0px 0px 53px;
+
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.2px;
+  line-height: 23px;
+  margin-bottom: 37px;
+}
+
+.loginButton {
+  background: #00acc2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 55px;
+
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.2px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+.loginForm label {
+  width: 100%;
+  position: relative;
+}
+
+.loginForm label > .icon {
+  position: absolute;
+  top: auto;
+  top: 18px;
+  left: 20px;
+}
+
+.forgottenPassword {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.forgottenPassword a {
+  color: #073156;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.2px;
+  line-height: 23px;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .loginContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .loginLeft {
+    /* width: 100%; */
+    display: none;
+  }
+  .loginRight {
+    width: 90%;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* .LoginPageForm {
+    width: 50%;
+  } */
+}
+
+/* // Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+} */
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* .LoginPageForm {
+    width: 30%;
+  } */
+}

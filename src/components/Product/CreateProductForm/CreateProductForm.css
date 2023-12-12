@@ -1,0 +1,143 @@
+.inputPic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin-left: 2%;
+}
+
+.textareaProduct {
+  color: #7f7f7f;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 2px solid #e6e6e6;
+  outline: none;
+
+  width: 100%;
+  padding-block: 10px;
+  padding-left: 3px;
+  height: 100px;
+  max-width: 100%;
+}
+
+.doneBtn {
+  color: #ffffff;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+
+  background-color: #00acc2;
+  border-color: transparent;
+  border-radius: 4px;
+  height: 47px;
+  width: 220px;
+  margin-left: 20px;
+
+  cursor: pointer;
+
+  transition-duration: 0.4s;
+}
+
+.doneBtn:hover {
+  background-color: #198591;
+}
+
+.backBtn {
+  color: #585858;
+  background-color: #eeeeee;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+
+  border: 1px solid;
+  border-color: #f2f2f2;
+  border-radius: 4px;
+  height: 47px;
+  width: 220px;
+
+  transition-duration: 0.4s;
+
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.ProductBtn {
+  display: flex;
+  flex-direction: row;
+  margin-inline: 6%;
+  margin-block: 30px;
+  justify-content: flex-end;
+}
+
+.rectanglegrey {
+  background-color: #eeeeee;
+  min-height: 300px;
+  width: 100%;
+  max-width: 250px;
+  margin: 25px;
+}
+
+.addImage {
+  height: 100px;
+  position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+  .componentCreateProductForm {
+    margin: 16px;
+    position: relative;
+  }
+
+  .textareaProduct {
+    width: 100%;
+    margin-block: 5%;
+  }
+
+  .inputPic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-block: 5%;
+    align-content: center;
+  }
+
+  .ProductBtn {
+    display: flex;
+    flex-direction: row;
+    margin-inline: 6%;
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .componentCreateProductForm {
+    margin-block: 24px;
+    margin-inline: 8px;
+    position: relative;
+  }
+
+  .textareaProduct {
+    width: 100%;
+    margin-block: 5%;
+  }
+}

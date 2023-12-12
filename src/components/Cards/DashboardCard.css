@@ -1,0 +1,124 @@
+.rectangle {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-color: #1d90f2;
+  border-radius: 4px;
+  border-top-style: solid;
+  border-top-width: 6px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 153px;
+  width: 100%;
+}
+
+.cantidad-ventas {
+  color: #626262;
+  font-family: 'Roboto-Light', Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.botton-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer; 
+  background-color: transparent; 
+  border: none;
+}
+
+.see-more {
+  color: #1E91ED;
+  font-family: 'Roboto-Regular', Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 14px;
+  text-align: center;
+  width: 51px;
+}
+
+.element {
+  color: #454545;
+  font-family: 'Poppins-Regular', Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.line {
+  color: #d9d9d9;
+  width: 90%;
+  border-top: 1px solid
+}
+
+/* @media screen and (max-width: 800px) {
+}
+
+@media screen and (max-width: 470px) {
+  .rectangle {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-color: #1d90f2;
+    border-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 6px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 123px;
+    width: 100%;
+  }
+  
+  .cantidad-ventas {
+    color: #626262;
+    font-family: 'Roboto-Light', Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  .info-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .botton-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer; 
+    background-color: transparent; 
+    border: none;
+  }
+  
+  .see-more {
+    color: #1E91ED;
+    font-family: 'Roboto-Regular', Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    height: 14px;
+    text-align: center;
+    width: 51px;
+  }
+  
+  .element {
+    color: #454545;
+    font-family: 'Poppins-Regular', Helvetica;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .line {
+    color: #d9d9d9;
+    width: 90%;
+    border-top: 1px solid
+  }
+} */
