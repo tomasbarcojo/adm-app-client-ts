@@ -99,9 +99,8 @@ body{
   pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu{
-  padding: 6px 6px 14px 80px;
-  margin-top: -10px;
-  background: #1d1b31;
+  padding: 6px 14px 6px 80px;
+  background: #374151;
   display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu{
@@ -110,7 +109,7 @@ body{
 .sidebar .nav-links li .sub-menu a{
   color: #fff;
   font-size: 15px;
-  padding: 5px 0;
+  padding: 10px 0;
   white-space: nowrap;
   opacity: 0.6;
   transition: all 0.3s ease;
@@ -162,7 +161,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1d1b31;
+  background: #374151;
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -182,7 +181,7 @@ body{
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: #1d1b31;
+  background: #374151;
   transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{

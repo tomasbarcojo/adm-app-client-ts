@@ -11,6 +11,7 @@ import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 import Dashboard from 'pages/Dashboard/Dashboard';
 import { CreateSupplierForm } from 'components/Supplier/CreateSupplierForm';
 import ListTest from 'components/ListTest/ListTest';
+import Table from 'components/Table/Table';
 
 // : Array<{
 //   name: string;
@@ -70,7 +71,7 @@ export const sideBarRoutes = {
           key: 'list-products',
           path: 'list',
           icon: 'bx bx-plus',
-          element: <CreateProductForm />
+          element: <Table />
         }
       ]
     },
