@@ -58,6 +58,14 @@
   margin-bottom: 30px;
 }
 
+.threeinput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 4%;
+}
+
 .inputsForm {
   display: flex;
   flex-direction: column;
@@ -87,6 +95,21 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 0%;
+  }
+
+  .threeinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0%;
+  }
+
+  .threeinput .input-select-contain {
+    margin-bottom: 35px;
+  }
+
+  .threeinput .input-text-contain {
+    margin-bottom: 35px;
   }
 
   .twoinput .input-select-contain {
