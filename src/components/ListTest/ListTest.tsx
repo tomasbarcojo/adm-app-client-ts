@@ -1,4 +1,5 @@
 import { BoxForm } from 'components/Forms/BoxForm';
+import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 import { InputText } from 'components/Inputs/InputText/InputText';
 import React, { type ChangeEvent, useEffect, useState } from 'react';
 import { TableVirtuoso } from 'react-virtuoso';
@@ -54,25 +55,39 @@ const ListTest = () => {
     <BoxForm>
       <div className="inputsContainerForm">
         <div className="inputsForm">
-          <div className="oneinput">
+          <input
+            className="searchInput"
+            type="search"
+            placeholder="Buscar..."
+            defaultValue={filters.params.search}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                const event = e.target as HTMLInputElement;
+                filters.setParam('search', event.value);
+              }
+            }}
+            onBlur={(e) => {
+              const event = e.target as HTMLInputElement;
+              filters.setParam('search', event.value);
+            }}
+          />
+          <div className="threeinput">
             <InputText
               placeHolder="Name"
               inputName="name"
               onInputChange={handleChange}
             />
-          </div>
-          <div className="oneinput">
-            <InputText
-              placeHolder="Name"
-              inputName="name"
+            <InputSelect
+              placeHolder="Supplier"
+              inputName="supplierId"
               onInputChange={handleChange}
+              dataList={[]}
             />
-          </div>
-          <div className="oneinput">
-            <InputText
-              placeHolder="Name"
-              inputName="name"
+            <InputSelect
+              placeHolder="Category"
+              inputName="categoryId"
               onInputChange={handleChange}
+              dataList={[]}
             />
           </div>
           <TableVirtuoso
@@ -108,26 +123,13 @@ const ListTest = () => {
                 <td style={{ padding: '10px' }}>{product.price}</td>
                 <td style={{ padding: '10px' }}>{product.obs}</td>
                 <td style={{ padding: '10px' }}>{product.stock}</td>
+                <td style={{ padding: '10px' }}>
+                  <input />
+                </td>
               </>
             )}
           />
         </div>
-        {/* <input
-          className="searchInput"
-          type="search"
-          placeholder="Buscar..."
-          defaultValue={filters.params.search}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              const event = e.target as HTMLInputElement;
-              filters.setParam('search', event.value);
-            }
-          }}
-          onBlur={(e) => {
-            const event = e.target as HTMLInputElement;
-            filters.setParam('search', event.value);
-          }}
-        /> */}
       </div>
     </BoxForm>
   );

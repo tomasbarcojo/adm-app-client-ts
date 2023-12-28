@@ -43,6 +43,7 @@ module.exports = {
           'onKeyUp'
         ]
       }
-    ]
+    ],
+    'react-hooks/exhaustive-deps': 'off'
   }
 };

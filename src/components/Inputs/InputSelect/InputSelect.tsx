@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { type ChangeEvent, useEffect, useRef, useState } from 'react';
 import './InputSelect.css';
 import '../InputText/InputText.css';
 
 export const InputSelect = (props: {
   placeHolder: string;
+  inputName?: string;
   dataList?;
+  onInputChange: (value: ChangeEvent<HTMLInputElement>) => void;
 }): JSX.Element => {
   const [value, setValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -12,6 +14,7 @@ export const InputSelect = (props: {
     .slice(0, 10)
     .filter((option) => option.toLowerCase().includes(value.toLowerCase()));
   const autocompleteRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     const handleClick = (event) => {
       if (
@@ -29,6 +32,7 @@ export const InputSelect = (props: {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    props.onInputChange(event);
   };
 
   const handleSuggestionClick = (suggestion) => {
@@ -45,6 +49,7 @@ export const InputSelect = (props: {
         onFocus={() => {
           setShowSuggestions(true);
         }}
+        name={props.inputName}
       />
       <label
         className="placeholder-text-label"
