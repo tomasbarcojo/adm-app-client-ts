@@ -1,7 +1,7 @@
 import { BoxForm } from 'components/Forms/BoxForm';
-import { InputSelect } from 'components/Inputs/InputSelect/InputSelect';
 import { InputText } from 'components/Inputs/InputText/InputText';
-import React, { type ChangeEvent, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TableVirtuoso } from 'react-virtuoso';
 import axiosInstance from 'utils/axios';
 import { useQueryParams } from 'utils/useQueryParams';
@@ -45,95 +45,99 @@ const SupplierList = () => {
     fetchData();
   }, [JSON.stringify(castedFilters)]);
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    console.log(event);
-  };
-
   return (
     <BoxForm>
       <div className="inputsContainerForm">
         <div className="inputsForm">
-          <InputText
-            placeHolder="Search"
-            inputName="search"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
+          <div className="oneinput">
+            <InputText
+              placeHolder="Search"
+              inputName="search"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  const event = e.target as HTMLInputElement;
+                  filters.setParam('search', event.value);
+                }
+              }}
+              onBlur={(e) => {
                 const event = e.target as HTMLInputElement;
                 filters.setParam('search', event.value);
-              }
+              }}
+            />
+          </div>
+          <TableVirtuoso
+            style={{ height: 'calc(100vh - 397px)' }}
+            data={list}
+            components={{
+              Table: ({ ...props }) => (
+                <table
+                  {...props}
+                  style={{ borderCollapse: 'collapse', width: '100%' }}
+                />
+              ),
+              TableRow: ({ ...props }) => (
+                <tr {...props} style={{ borderTop: '1px solid #E0E0E0' }} />
+              ),
+              TableHead: ({ ...props }) => (
+                <thead
+                  {...props}
+                  style={{
+                    zIndex: 2,
+                    position: 'sticky',
+                    top: 0,
+                    background: 'white'
+                  }}
+                />
+              )
             }}
-            onBlur={(e) => {
-              const event = e.target as HTMLInputElement;
-              filters.setParam('search', event.value);
+            endReached={() => {
+              void fetchData();
             }}
+            fixedHeaderContent={() => (
+              <tr style={{ textAlign: 'left' }}>
+                <th style={{ padding: '10px', minWidth: '50px' }} />
+                <th style={{ padding: '10px', minWidth: '50px' }}>Id</th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>Name</th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>CUIT</th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>
+                  Bank Account 1
+                </th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>
+                  Bank Account 2
+                </th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>
+                  Bank Account 3
+                </th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>Phone</th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>City</th>
+                <th style={{ padding: '10px', minWidth: '200px' }}>Address</th>
+              </tr>
+            )}
+            itemContent={(index, data) => (
+              <>
+                <td
+                  style={{
+                    padding: '10px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}
+                >
+                  <Link to="/admin/supplier/new">
+                    <i className="bx bx-edit bx-sm bx-border"></i>
+                  </Link>
+                </td>
+                <td style={{ padding: '10px' }}>{data.id}</td>
+                <td style={{ padding: '10px' }}>{data.businessName}</td>
+                <td style={{ padding: '10px' }}>{data.cuit}</td>
+                <td style={{ padding: '10px' }}>{data.bankaccount1}</td>
+                <td style={{ padding: '10px' }}>{data.bankaccount2}</td>
+                <td style={{ padding: '10px' }}>{data.bankaccount3}</td>
+                <td style={{ padding: '10px' }}>{data.phone}</td>
+                <td style={{ padding: '10px' }}>{data.city}</td>
+                <td style={{ padding: '10px' }}>{data.address}</td>
+              </>
+            )}
           />
-          <div className="threeinput">
-            <InputText
-              placeHolder="Name"
-              inputName="name"
-              onInputChange={handleChange}
-            />
-            <InputSelect
-              placeHolder="Supplier"
-              inputName="supplierId"
-              onInputChange={handleChange}
-              dataList={[]}
-            />
-            <InputSelect
-              placeHolder="Category"
-              inputName="categoryId"
-              onInputChange={handleChange}
-              dataList={[]}
-            />
-          </div>
-          <div style={{ overflowX: 'clip' }}>
-            <TableVirtuoso
-              useWindowScroll
-              data={list}
-              components={{
-                Table: ({ ...props }) => (
-                  <table
-                    {...props}
-                    style={{ borderCollapse: 'collapse', width: '100%' }}
-                  />
-                ),
-                TableRow: ({ ...props }) => (
-                  <tr {...props} style={{ borderTop: '2px solid #E0E0E0' }} />
-                )
-              }}
-              endReached={() => {
-                void fetchData();
-              }}
-              fixedHeaderContent={() => (
-                <tr style={{ textAlign: 'left' }}>
-                  <th style={{ padding: '10px' }}>Id</th>
-                  <th style={{ padding: '10px' }}>Name</th>
-                  <th style={{ padding: '10px' }}>CUIT</th>
-                  <th style={{ padding: '10px' }}>Bank Account 1</th>
-                  <th style={{ padding: '10px' }}>Bank Account 2</th>
-                  <th style={{ padding: '10px' }}>Bank Account 3</th>
-                  <th style={{ padding: '10px' }}>Phone</th>
-                  <th style={{ padding: '10px' }}>City</th>
-                  <th style={{ padding: '10px' }}>Address</th>
-                </tr>
-              )}
-              itemContent={(index, data) => (
-                <>
-                  <td style={{ padding: '10px' }}>{data.id}</td>
-                  <td style={{ padding: '10px' }}>{data.businessName}</td>
-                  <td style={{ padding: '10px' }}>{data.cuit}</td>
-                  <td style={{ padding: '10px' }}>{data.bankaccount1}</td>
-                  <td style={{ padding: '10px' }}>{data.bankaccount2}</td>
-                  <td style={{ padding: '10px' }}>{data.bankaccount3}</td>
-                  <td style={{ padding: '10px' }}>{data.phone}</td>
-                  <td style={{ padding: '10px' }}>{data.city}</td>
-                  <td style={{ padding: '10px' }}>{data.address}</td>
-                </>
-              )}
-            />
-          </div>
         </div>
       </div>
     </BoxForm>
