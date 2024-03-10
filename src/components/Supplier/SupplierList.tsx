@@ -66,7 +66,7 @@ const SupplierList = () => {
             />
           </div>
           <TableVirtuoso
-            style={{ height: 'calc(100vh - 397px)' }}
+            style={{ height: 'calc(100vh - 365px)' }}
             data={list}
             components={{
               Table: ({ ...props }) => (
