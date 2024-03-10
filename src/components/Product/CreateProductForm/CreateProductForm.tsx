@@ -290,8 +290,16 @@ export const CreateProductForm = (): JSX.Element => {
                 />
               </div>
               <div className="twoinput">
-                <InputSelect placeHolder="Supplier" dataList={countries} />
-                <InputSelect placeHolder="Supplier" dataList={countries} />
+                <InputSelect
+                  placeHolder="Supplier"
+                  dataList={countries}
+                  onInputChange={handleChange}
+                />
+                <InputSelect
+                  placeHolder="Supplier"
+                  dataList={countries}
+                  onInputChange={handleChange}
+                />
               </div>
               <div className="twoinput">
                 <InputText

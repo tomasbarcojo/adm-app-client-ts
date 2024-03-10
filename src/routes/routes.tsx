@@ -11,6 +11,7 @@ import { CreateClientForm } from 'components/Clients/CreateClientsForm';
 import Dashboard from 'pages/Dashboard/Dashboard';
 import { CreateSupplierForm } from 'components/Supplier/CreateSupplierForm';
 import ListTest from 'components/ListTest/ListTest';
+import SupplierList from 'components/Supplier/SupplierList';
 
 // : Array<{
 //   name: string;
@@ -148,7 +149,7 @@ export const sideBarRoutes = {
           key: 'list-supplier',
           path: 'list',
           icon: 'bx bx-plus',
-          element: <CreateSupplierForm />
+          element: <SupplierList />
         }
       ]
     }
