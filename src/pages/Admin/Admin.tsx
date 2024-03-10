@@ -118,7 +118,7 @@ const Admin: React.FC = () => {
           <span className="text">Drop Down Sidebar</span>
           <button onClick={handleLogout}>Logout</button>
         </div>
-        <div style={{ margin: '32px' }}>
+        <div style={{ margin: '32px 32px 0px 32px' }}>
           <Outlet />
         </div>
       </section>
